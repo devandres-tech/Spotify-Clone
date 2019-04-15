@@ -19,20 +19,20 @@ class App extends Component {
     const scopes = 'user-read-private%20user-read-email%20playlist-read-private%20user-library-read%20user-follow-read%20user-top-read%20user-read-currently-playing%20user-read-recently-played'
     // When component mounts request authorization
     // window.location.href = `https://accounts.spotify.com/authorize?client_id=${clientId}&scope=${scopes}&response_type=token&redirect_uri=${URI}`
-    let accessToken = window.location.hash.split('=')[1].split('&')[0];
+    // let accessToken = window.location.hash.split('=')[1].split('&')[0];
     // console.log(params);
-    console.log('prams is', accessToken)
-    this.props.setToken(accessToken);
+    // console.log('prams is', accessToken)
+    // this.props.setToken(accessToken);
   }
 
-
   render() {
-    console.log('porps is ', this.props);
     return (
       <div className="container">
         <LeftSideMenu />
-        <TopHeader />
-        <MainView />
+        <div className="container__main-view">
+          <TopHeader />
+          <MainView />
+        </div>
         <Footer />
       </div>
     );

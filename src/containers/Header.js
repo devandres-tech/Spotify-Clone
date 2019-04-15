@@ -1,11 +1,18 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-export default class Header extends Component {
-  render() {
-    return (
-      <div className="container__topHeader">
-        <h1 >Top header</h1>
-      </div>
-    )
+const Header = (props) => {
+  return (
+    < div className="container__topHeader" >
+      <h1>{props.title}</h1>
+    </div >
+  )
+}
+
+const mapStateToProps = (state) => {
+  return {
+    title: state.mainViewReducer.title
   }
 }
+
+export default connect(mapStateToProps)(Header);

@@ -3,3 +3,6 @@ export {
   setToken
 } from './token';
 
+export {
+  updateTitle
+} from './mainView'

@@ -1,6 +1,9 @@
-import React from 'react'
+import React from 'react';
+import { connect } from 'react-redux';
+import { updateTitle } from '../store/actions';
+import { bindActionCreators } from "redux";
 
-export default function LeftSideMenu() {
+function LeftSideMenu(props) {
 
   const renderPlaylist = () => {
     return (
@@ -16,16 +19,20 @@ export default function LeftSideMenu() {
     return (
       <>
         <li>Recently Played</li>
-        <li>Songs</li>
-        <li>Albums</li>
-        <li>Artists</li>
+        <li onClick={() => props.updateTitle('Songs')}>Songs</li>
+        <li onClick={() => props.updateTitle('Albums')}>Albums</li>
+        <li onClick={() => props.updateTitle('Artists')}>Artists</li>
       </>
     )
   }
 
+  const onBrowseClick = () => {
+    props.updateTitle('Browse');
+  }
+
   return (
     <ul className="container__left-menu">
-      <li>Browse</li>
+      <li onClick={onBrowseClick}>Browse</li>
       <li>Radio</li>
       <li>YOUR LIBRARY</li>
       {renderUserLibrary()}
@@ -35,3 +42,8 @@ export default function LeftSideMenu() {
   )
 }
 
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({ updateTitle }, dispatch)
+}
+
+export default connect(null, mapDispatchToProps)(LeftSideMenu);
