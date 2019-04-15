@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import * as actionTypes from '../store/actions/index';
-import LeftSideMenu from './LeftSideMenu';
-import Footer from './Footer';
-import MainView from './MainView';
-import TopHeader from './Header';
+import LeftSideMenu from '../components/LeftSideMenu';
+import Footer from '../components/Footer';
+import MainView from '../components/MainView';
+import TopHeader from '../components/Header';
 
 
 class App extends Component {

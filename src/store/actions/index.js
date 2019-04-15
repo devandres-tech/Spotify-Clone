@@ -5,4 +5,8 @@ export {
 
 export {
   updateTitle
-} from './mainView'
+} from './mainView';
+
+export {
+  updateBrowseView
+} from './browseView'

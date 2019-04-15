@@ -1,8 +1,8 @@
 import * as actionTypes from '../actions/actionTypes';
 
-export const mainViewReducer = (state = {}, action) => {
+export const browseViewReducer = (state = {}, action) => {
   switch (action.type) {
-    case actionTypes.UPDATE_TITLE:
+    case actionTypes.UPDATE_BROWSE_VIEW:
       return {
         ...state,
         title: action.title
@@ -13,4 +13,4 @@ export const mainViewReducer = (state = {}, action) => {
   }
 }
 
-export default mainViewReducer;
+export default browseViewReducer;
