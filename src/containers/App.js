@@ -13,16 +13,17 @@ class App extends Component {
 
 
   componentDidMount() {
-    // client Secret: 109aff4eb4374830ab1113b0a224b2c9
     const clientId = '40fee03a615b470c8c8f73a02a634dcc';
     const URI = 'http://localhost:3001/callback/';
     const scopes = 'user-read-private%20user-read-email%20playlist-read-private%20user-library-read%20user-follow-read%20user-top-read%20user-read-currently-playing%20user-read-recently-played'
     // When component mounts request authorization
-    // window.location.href = `https://accounts.spotify.com/authorize?client_id=${clientId}&scope=${scopes}&response_type=token&redirect_uri=${URI}`
-    // let accessToken = window.location.hash.split('=')[1].split('&')[0];
-    // console.log(params);
-    // console.log('prams is', accessToken)
-    // this.props.setToken(accessToken);
+    let accessToken;
+    if (window.location.hash.length === 0) {
+      window.location.href = `https://accounts.spotify.com/authorize?client_id=${clientId}&scope=${scopes}&response_type=token&redirect_uri=${URI}`
+    } else {
+      accessToken = window.location.hash.split('=')[1].split('&')[0];
+      this.props.setToken(accessToken);
+    }
   }
 
   render() {

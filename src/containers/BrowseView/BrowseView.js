@@ -11,6 +11,7 @@ class BrowseView extends Component {
   renderBrowseViewSwitch = () => {
     switch (this.props.browseTitle) {
       case 'genres':
+        this.props.fetchBrowseCategories(this.props.token);
         return <GenresView />
 
       case 'newReleases':
@@ -37,13 +38,15 @@ class BrowseView extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    browseTitle: state.browseViewReducer.title
+    browseTitle: state.browseViewReducer.title,
+    token: state.tokenReducer.token
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    setBrowseView: (title) => dispatch(actionTypes.updateBrowseView(title))
+    setBrowseView: (title) => dispatch(actionTypes.updateBrowseView(title)),
+    fetchBrowseCategories: (token) => dispatch(actionTypes.fetchBrowseCategories(token))
   }
 }
 

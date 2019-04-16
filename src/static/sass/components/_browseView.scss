@@ -1,0 +1,26 @@
+.browse-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
+  grid-auto-rows: 1fr;
+  grid-gap: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+
+  &::before {
+    content: '';
+    width: 0;
+    padding-bottom: 100%;
+    grid-row: 1 / 1;
+    grid-column: 1 / 1;
+  }
+
+  &>*:first-child {
+    grid-row: 1 / 1;
+    grid-column: 1 / 1;
+  }
+
+  &>* {
+    background: rgba(0, 0, 0, 0.1);
+    border: 1px white solid;
+  }
+}

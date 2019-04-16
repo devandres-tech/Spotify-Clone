@@ -8,5 +8,6 @@ export {
 } from './mainView';
 
 export {
-  updateBrowseView
+  updateBrowseView,
+  fetchBrowseCategories
 } from './browseView'
