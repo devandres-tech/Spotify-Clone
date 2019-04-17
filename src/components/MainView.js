@@ -3,15 +3,16 @@ import { connect } from 'react-redux';
 
 import BrowseView from '../containers/BrowseView/BrowseView';
 import SongsView from '../containers/SongsView';
+import *  as actionTypes from '../store/actions';
 
 
 class MainView extends Component {
-  // TODO: Main view should be components and they should be conditionally rendered
-  // make them outside of this component
 
+  // Render side menu view
   renderMainViewSwitch() {
     switch (this.props.title) {
       case 'Browse':
+        this.props.fetchBrowseCategories(this.props.token);
         return <BrowseView />
       case 'Songs':
         return <SongsView />
@@ -31,9 +32,16 @@ class MainView extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    title: state.mainViewReducer.title
+    title: state.mainViewReducer.title,
+    token: state.tokenReducer.token
   }
 }
 
-export default connect(mapStateToProps)(MainView);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchBrowseCategories: (token) => dispatch(actionTypes.fetchBrowseCategories(token))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(MainView);
 

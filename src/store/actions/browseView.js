@@ -9,7 +9,6 @@ export const updateBrowseView = (title) => {
 }
 
 export const fetchBrowseCategories = (token) => {
-  console.log('toekn i s', token)
   const request = axios.get('/browse/categories', {
     headers: {
       'Accept': 'application/json',

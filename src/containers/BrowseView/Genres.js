@@ -1,44 +1,31 @@
 import React from 'react'
+import { connect } from 'react-redux';
 
-export default function Genres() {
+
+const Genres = (props) => {
+  console.log("props os ", props);
+  let albums;
+  if (props.albumGenres) {
+    albums = props.albumGenres.map((album) => {
+      return (
+        <div key={album.id}>
+          <img src={album.icons[0].url} alt="" />
+          <p>{album.name}</p>
+        </div>
+      )
+    })
+  }
   return (
     <div className="browse-container">
-      <div>
-        <h1>Thi is a genre box</h1>
-        <h3>Cool beans</h3>
-      </div>
-      <div>
-        <h1>Thi is a genre box</h1>
-        <h3>Cool beans</h3>
-      </div>
-      <div>
-        <h1>Thi is a genre box</h1>
-        <h3>Cool beans</h3>
-      </div>
-      <div>
-        <h1>Thi is a genre box</h1>
-        <h3>Cool beans</h3>
-      </div>
-      <div>
-        <h1>Thi is a genre box</h1>
-        <h3>Cool beans</h3>
-      </div>
-      <div>
-        <h1>Thi is a genre box</h1>
-        <h3>Cool beans</h3>
-      </div>
-      <div>
-        <h1>Thi is a genre box</h1>
-        <h3>Cool beans</h3>
-      </div>
-      <div>
-        <h1>Thi is a genre box</h1>
-        <h3>Cool beans</h3>
-      </div>
-      <div>
-        <h1>Thi is a genre box</h1>
-        <h3>Cool beans</h3>
-      </div>
+      {albums}
     </div>
   )
 }
+
+const mapStateToProps = (state) => {
+  return {
+    albumGenres: state.browseViewReducer.data,
+  }
+}
+
+export default connect(mapStateToProps)(Genres);

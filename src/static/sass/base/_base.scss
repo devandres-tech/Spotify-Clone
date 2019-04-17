@@ -146,6 +146,7 @@ body {
   }
 
   &__main-view {
+    overflow-y: scroll;
     background-color: rgb(216, 148, 148);
     grid-column: 2 / 3;
     grid-row: 1 / 2;
