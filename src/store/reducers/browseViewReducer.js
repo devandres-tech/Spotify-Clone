@@ -1,5 +1,4 @@
 import * as actionTypes from '../actions/actionTypes';
-import { request } from 'http';
 
 export const browseViewReducer = (state = {}, action) => {
   switch (action.type) {
@@ -12,7 +11,13 @@ export const browseViewReducer = (state = {}, action) => {
     case actionTypes.FETCH_BROWSE_CATEGORIES:
       return {
         ...state,
-        data: action.payload.data.categories.items
+        categories: action.payload.data.categories.items
+      }
+
+    case actionTypes.FETCH_FEATURED_PLAYLIST:
+      return {
+        ...state,
+        featured: action.payload.data.playlists.items
       }
 
     default:

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { updateTitle } from '../store/actions';
+import { updateTitle, fetchBrowseCategories, fetchFeaturedPlaylist } from '../store/actions';
 import { bindActionCreators } from "redux";
 
 function LeftSideMenu(props) {
@@ -42,8 +42,18 @@ function LeftSideMenu(props) {
   )
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({ updateTitle }, dispatch)
+const mapStateToProps = (state) => {
+  return {
+    token: state.tokenReducer.token
+  }
 }
 
-export default connect(null, mapDispatchToProps)(LeftSideMenu);
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({
+    updateTitle,
+    fetchBrowseCategories,
+    fetchFeaturedPlaylist
+  }, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(LeftSideMenu);

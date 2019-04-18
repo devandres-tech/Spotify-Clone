@@ -22,3 +22,18 @@ export const fetchBrowseCategories = (token) => {
     payload: request
   }
 }
+
+export const fetchFeaturedPlaylist = (token) => {
+  const request = axios.get('/browse/featured-playlists', {
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + token
+    }
+  })
+
+  return {
+    type: actionTypes.FETCH_FEATURED_PLAYLIST,
+    payload: request
+  }
+}

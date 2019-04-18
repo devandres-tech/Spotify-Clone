@@ -8,11 +8,10 @@ import *  as actionTypes from '../store/actions';
 
 class MainView extends Component {
 
-  // Render side menu view
+  // Update the main view and dispatch actions
   renderMainViewSwitch() {
     switch (this.props.title) {
       case 'Browse':
-        this.props.fetchBrowseCategories(this.props.token);
         return <BrowseView />
       case 'Songs':
         return <SongsView />
@@ -21,7 +20,6 @@ class MainView extends Component {
     }
   }
   render() {
-
     return (
       <div>
         {this.renderMainViewSwitch()}
@@ -33,15 +31,8 @@ class MainView extends Component {
 const mapStateToProps = (state) => {
   return {
     title: state.mainViewReducer.title,
-    token: state.tokenReducer.token
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    fetchBrowseCategories: (token) => dispatch(actionTypes.fetchBrowseCategories(token))
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(MainView);
+export default connect(mapStateToProps)(MainView);
 

@@ -3,33 +3,33 @@ import { connect } from 'react-redux';
 
 import GenresView from './Genres';
 import NewReleasesView from './NewReleases';
-import PodcastView from './Podcast';
 import * as actionTypes from '../../store/actions';
+import Featured from './Featured';
 
 class BrowseView extends Component {
 
-  renderBrowseViewSwitch = () => {
-    switch (this.props.browseTitle) {
-      case 'genres':
-        return <GenresView />
+  onSetBrowseView = () => {
+    this.props.setBrowseView('genres');
+    this.props.fetchBrowseCategories(this.props.token);
+  }
 
-      case 'newReleases':
-        return <NewReleasesView />
-
-      case 'podcast':
-        return <PodcastView />
-      default:
-        return <GenresView />
-    }
+  onSetFeaturedView = () => {
+    this.props.setBrowseView('featured');
+    this.props.fetchFeaturedPlaylist(this.props.token);
   }
 
   render() {
+    const { browseTitle } = this.props;
     return (
       <div>
-        <p onClick={() => this.props.setBrowseView('genres')}>Genres</p>
+        <p onClick={() => this.onSetBrowseView()}>Genres</p>
         <p onClick={() => this.props.setBrowseView('newReleases')}>New Releases</p>
-        <p onClick={() => this.props.setBrowseView('podcast')}>Podcast</p>
-        {this.renderBrowseViewSwitch()}
+        <p onClick={() => this.onSetFeaturedView()}>Featured</p>
+        {
+          browseTitle === 'genres' ? <GenresView /> :
+            browseTitle === 'newReleases' ? <NewReleasesView /> :
+              browseTitle === 'featured' ? <Featured /> : ''
+        }
       </div>
     )
   }
@@ -45,6 +45,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     setBrowseView: (title) => dispatch(actionTypes.updateBrowseView(title)),
+    fetchFeaturedPlaylist: (token) => dispatch(actionTypes.fetchFeaturedPlaylist(token)),
+    fetchBrowseCategories: (token) => dispatch(actionTypes.fetchBrowseCategories(token)),
   }
 }
 

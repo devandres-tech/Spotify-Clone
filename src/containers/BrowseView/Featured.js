@@ -1,13 +1,14 @@
 import React from 'react'
 import { connect } from 'react-redux';
 
-const Genres = (props) => {
+
+const Featured = (props) => {
   let albums;
-  if (props.albumGenres) {
-    albums = props.albumGenres.map((album) => {
+  if (props.featuredPlaylist) {
+    albums = props.featuredPlaylist.map((album) => {
       return (
         <div key={album.id}>
-          <img src={album.icons[0].url} alt="" />
+          <img src={album.images[0].url} alt="" />
           <p>{album.name}</p>
         </div>
       )
@@ -22,8 +23,8 @@ const Genres = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    albumGenres: state.browseViewReducer.categories,
+    featuredPlaylist: state.browseViewReducer.featured,
   }
 }
 
-export default connect(mapStateToProps)(Genres);
+export default connect(mapStateToProps)(Featured);

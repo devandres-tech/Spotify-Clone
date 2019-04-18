@@ -9,5 +9,6 @@ export {
 
 export {
   updateBrowseView,
-  fetchBrowseCategories
+  fetchBrowseCategories,
+  fetchFeaturedPlaylist
 } from './browseView'
