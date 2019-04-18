@@ -18,7 +18,7 @@ function LeftSideMenu(props) {
   const renderUserLibrary = () => {
     return (
       <>
-        <li>Recently Played</li>
+        <li onClick={() => props.updateTitle('RecentlyPlayed')}>Recently Played</li>
         <li onClick={() => props.updateTitle('Songs')}>Songs</li>
         <li onClick={() => props.updateTitle('Albums')}>Albums</li>
         <li onClick={() => props.updateTitle('Artists')}>Artists</li>

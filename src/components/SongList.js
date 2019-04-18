@@ -13,6 +13,7 @@ const SongList = (props) => {
   }
 
   if (props.trackList) {
+    // return tracks for a playlist
     if (props.trackList.tracks) {
       trackList = props.trackList.tracks.items;
       playListName = props.trackList.name;
@@ -26,9 +27,10 @@ const SongList = (props) => {
       })
 
     } else {
-      trackListArray = props.trackList.map((track) => {
+      // return tracks for a album
+      trackListArray = props.trackList.map((track, idx) => {
         return (
-          <li key={track.id} onClick={() => audioElement(track.preview_url)}>
+          <li key={idx} onClick={() => audioElement(track.preview_url)}>
             <p>{track.name}</p>
           </li>
         )
@@ -51,7 +53,6 @@ const SongList = (props) => {
 const mapStateToProps = (state) => {
   return {
     trackList: state.playlistReducer.data,
-    // albumTrackList: state.playlistReducer.albumTracks
     newReleasesAlbums: state.browseViewReducer.newReleases,
   }
 }

@@ -25,13 +25,11 @@ const Featured = (props) => {
   }
 
   return (
-    <div className="browse-container" >
+    <div className="browse-container">
       {albums}
     </div>
   )
 }
-
-
 
 const mapStateToProps = (state) => {
   return {

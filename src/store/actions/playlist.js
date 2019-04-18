@@ -18,7 +18,6 @@ export const fetchPlaylistTracks = (token, playlistId) => {
 }
 
 export const fetchAlbumTracks = (token, albumId) => {
-  console.log('to', token)
   const request = axios.get(`/albums/${albumId}/tracks`, {
     headers: {
       'Accept': 'application/json',
@@ -30,5 +29,20 @@ export const fetchAlbumTracks = (token, albumId) => {
   return {
     type: actionTypes.FETCH_ALBUM_TRACKS,
     payload: request
+  }
+}
+
+export const fetchRecentlyPlayed = (token) => {
+  const request = axios.get(`/me/player/recently-played`, {
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + token
+    }
+  });
+
+  return {
+    type: actionTypes.FETCH_RECENTLY_PLAYED_TRACKS,
+    payload: request,
   }
 }

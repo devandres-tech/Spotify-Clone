@@ -17,5 +17,6 @@ export {
 
 export {
   fetchPlaylistTracks,
-  fetchAlbumTracks
+  fetchAlbumTracks,
+  fetchRecentlyPlayed
 } from './playlist'

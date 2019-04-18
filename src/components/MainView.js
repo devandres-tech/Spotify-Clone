@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import BrowseView from '../containers/BrowseView/BrowseView';
 import SongsView from '../containers/SongsView';
+import RecentlyPlayed from '../containers/RecentlyPlayed';
 
 
 class MainView extends Component {
@@ -15,6 +16,8 @@ class MainView extends Component {
         return <BrowseView />
       case 'Songs':
         return <SongsView />
+      case 'RecentlyPlayed':
+        return <RecentlyPlayed />
       default:
         break;
     }
