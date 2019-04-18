@@ -11,4 +11,8 @@ export {
   updateBrowseView,
   fetchBrowseCategories,
   fetchFeaturedPlaylist
-} from './browseView'
+} from './browseView';
+
+export {
+  fetchFeaturedTracks
+} from './playlist'

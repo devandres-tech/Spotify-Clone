@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 
 import BrowseView from '../containers/BrowseView/BrowseView';
 import SongsView from '../containers/SongsView';
-import *  as actionTypes from '../store/actions';
 
 
 class MainView extends Component {
