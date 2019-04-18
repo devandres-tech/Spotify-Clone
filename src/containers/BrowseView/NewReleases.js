@@ -1,13 +1,22 @@
 import React from 'react'
 import { connect } from 'react-redux';
 
+import * as actionTypes from '../../store/actions'
+
 const NewReleases = (props) => {
+
+  // Set onClick function for every album
+  const onAlbumClick = (playlistId) => {
+    // fetch tracks for a selected playlist and update browse view
+    props.fetchAlbumTracks(props.token, playlistId);
+    props.setBrowseView('trackList');
+  }
+
   let albums;
-  // console.log('new releases ', props.newReleasesAlbums)
   if (props.newReleasesAlbums) {
     albums = props.newReleasesAlbums.map((album) => {
       return (
-        <div key={album.id}>
+        <div key={album.id} onClick={() => onAlbumClick(album.id)}>
           <img src={album.images[1].url} alt="" />
           <p>{album.name}</p>
         </div>
@@ -22,10 +31,19 @@ const NewReleases = (props) => {
   )
 }
 
-const mapStateToProps = (state) => {
+
+const mapDispatchToProps = (dispatch) => {
   return {
-    newReleasesAlbums: state.browseViewReducer.newReleases,
+    setBrowseView: (title) => dispatch(actionTypes.updateBrowseView(title)),
+    fetchAlbumTracks: (token, playlistId) => dispatch(actionTypes.fetchAlbumTracks(token, playlistId)),
   }
 }
 
-export default connect(mapStateToProps)(NewReleases);
+const mapStateToProps = (state) => {
+  return {
+    newReleasesAlbums: state.browseViewReducer.newReleases,
+    token: state.tokenReducer.token
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(NewReleases);

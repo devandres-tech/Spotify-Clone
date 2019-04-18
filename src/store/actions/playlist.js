@@ -16,3 +16,19 @@ export const fetchPlaylistTracks = (token, playlistId) => {
     payload: request
   }
 }
+
+export const fetchAlbumTracks = (token, albumId) => {
+  console.log('to', token)
+  const request = axios.get(`/albums/${albumId}/tracks`, {
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + token
+    }
+  });
+
+  return {
+    type: actionTypes.FETCH_ALBUM_TRACKS,
+    payload: request
+  }
+}
