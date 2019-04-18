@@ -4,7 +4,6 @@ import mainViewReducer from './mainViewReducer';
 import browseViewReducer from './browseViewReducer';
 import playlistReducer from './playlistReducer';
 
-// This is where state comes from 
 export default combineReducers({
   tokenReducer,
   mainViewReducer,

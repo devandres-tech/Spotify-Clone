@@ -13,6 +13,7 @@ const Genres = (props) => {
       )
     })
   }
+
   return (
     <div className="browse-container">
       {albums}

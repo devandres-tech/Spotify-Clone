@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux';
 
 import * as actionTypes from '../../store/actions'
@@ -7,9 +7,9 @@ import * as actionTypes from '../../store/actions'
 const Featured = (props) => {
   // Set onClick function for every album
   const onAlbumClick = (playlistId) => {
-    // fetch tracks for a selected playlist
-    console.log('id is ', playlistId)
-    props.fetchFeaturedTracks(props.token, playlistId)
+    // fetch tracks for a selected playlist and update browse view
+    props.fetchFeaturedTracks(props.token, playlistId);
+    props.setBrowseView('featuredTrackList');
   }
 
   let albums;
@@ -23,23 +23,28 @@ const Featured = (props) => {
       )
     })
   }
+
   return (
-    <div className="browse-container">
+    <div className="browse-container" >
       {albums}
     </div>
   )
 }
 
+
+
 const mapStateToProps = (state) => {
   return {
     featuredPlaylist: state.browseViewReducer.featured,
-    token: state.tokenReducer.token
+    token: state.tokenReducer.token,
+    browseTitle: state.browseViewReducer.title,
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchFeaturedTracks: (token, playlistId) => dispatch(actionTypes.fetchFeaturedTracks(token, playlistId)),
+    setBrowseView: (title) => dispatch(actionTypes.updateBrowseView(title)),
   }
 }
 

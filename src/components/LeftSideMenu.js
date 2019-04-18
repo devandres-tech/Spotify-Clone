@@ -26,6 +26,7 @@ function LeftSideMenu(props) {
     )
   }
 
+  // Update main header title on browse click
   const onBrowseClick = () => {
     props.updateTitle('Browse');
   }

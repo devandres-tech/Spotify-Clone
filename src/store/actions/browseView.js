@@ -2,6 +2,7 @@ import * as actionTypes from './actionTypes';
 import axios from '../../axios';
 
 export const updateBrowseView = (title) => {
+  console.log('title is reucer is ', title)
   return {
     type: actionTypes.UPDATE_BROWSE_VIEW,
     title

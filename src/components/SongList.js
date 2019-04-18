@@ -1,13 +1,25 @@
-import React, { Component } from 'react'
+import React from 'react'
+import { connect } from 'react-redux';
 
-class SongList extends Component {
-  render() {
-    return (
-      <div>
-        <h1>This is the song's list!</h1>
-      </div>
-    )
+const SongList = (props) => {
+  let playListName;
+  if (props.trackList) {
+    playListName = props.trackList.name;
+    //console.log("in props is", props.trackList);
+  }
+
+  return (
+    <div>
+      <h1>{playListName}</h1>
+    </div>
+  )
+
+}
+
+const mapStateToProps = (state) => {
+  return {
+    trackList: state.playlistReducer.data
   }
 }
 
-export default SongList;
+export default connect(mapStateToProps)(SongList);

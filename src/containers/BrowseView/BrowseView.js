@@ -5,14 +5,18 @@ import GenresView from './Genres';
 import NewReleasesView from './NewReleases';
 import * as actionTypes from '../../store/actions';
 import Featured from './Featured';
+import SongList from '../../components/SongList';
 
 class BrowseView extends Component {
 
+  // Update browse title and dispatch action
   onSetBrowseView = () => {
     this.props.setBrowseView('genres');
     this.props.fetchBrowseCategories(this.props.token);
   }
 
+  // Update browse title to render desired component
+  // and dispatch action
   onSetFeaturedView = () => {
     this.props.setBrowseView('featured');
     this.props.fetchFeaturedPlaylist(this.props.token);
@@ -28,7 +32,8 @@ class BrowseView extends Component {
         {
           browseTitle === 'genres' ? <GenresView /> :
             browseTitle === 'newReleases' ? <NewReleasesView /> :
-              browseTitle === 'featured' ? <Featured /> : ''
+              browseTitle === 'featured' ? <Featured /> :
+                browseTitle === 'featuredTrackList' ? <SongList /> : ''
         }
       </div>
     )

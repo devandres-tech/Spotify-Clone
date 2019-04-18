@@ -7,7 +7,8 @@ import SongsView from '../containers/SongsView';
 
 class MainView extends Component {
 
-  // Update the main view and dispatch actions
+  // Update the main view based on the 
+  // current main view title
   renderMainViewSwitch() {
     switch (this.props.title) {
       case 'Browse':
