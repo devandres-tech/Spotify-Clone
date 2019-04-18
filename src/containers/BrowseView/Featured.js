@@ -8,8 +8,8 @@ const Featured = (props) => {
   // Set onClick function for every album
   const onAlbumClick = (playlistId) => {
     // fetch tracks for a selected playlist and update browse view
-    props.fetchFeaturedTracks(props.token, playlistId);
-    props.setBrowseView('featuredTrackList');
+    props.fetchPlaylistTracks(props.token, playlistId);
+    props.setBrowseView('trackList');
   }
 
   let albums;
@@ -37,13 +37,12 @@ const mapStateToProps = (state) => {
   return {
     featuredPlaylist: state.browseViewReducer.featured,
     token: state.tokenReducer.token,
-    browseTitle: state.browseViewReducer.title,
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchFeaturedTracks: (token, playlistId) => dispatch(actionTypes.fetchFeaturedTracks(token, playlistId)),
+    fetchPlaylistTracks: (token, playlistId) => dispatch(actionTypes.fetchPlaylistTracks(token, playlistId)),
     setBrowseView: (title) => dispatch(actionTypes.updateBrowseView(title)),
   }
 }

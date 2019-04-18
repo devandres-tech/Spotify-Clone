@@ -16,5 +16,5 @@ export {
 } from './browseView';
 
 export {
-  fetchFeaturedTracks
+  fetchPlaylistTracks
 } from './playlist'

@@ -39,7 +39,7 @@ class BrowseView extends Component {
           browseTitle === 'genres' ? <GenresView /> :
             browseTitle === 'newReleases' ? <NewReleasesView /> :
               browseTitle === 'featured' ? <Featured /> :
-                browseTitle === 'featuredTrackList' ? <SongList /> :
+                browseTitle === 'trackList' ? <SongList /> :
                   browseTitle === 'categoryPlaylist' ? <GenresPlaylist /> : ''
         }
       </div>

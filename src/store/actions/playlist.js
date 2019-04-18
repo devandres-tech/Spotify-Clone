@@ -2,8 +2,7 @@ import * as actionTypes from './actionTypes';
 import axios from '../../axios';
 
 
-export const fetchFeaturedTracks = (token, playlistId) => {
-  console.log(playlistId)
+export const fetchPlaylistTracks = (token, playlistId) => {
   const request = axios.get(`/playlists/${playlistId}`, {
     headers: {
       'Accept': 'application/json',
@@ -13,7 +12,7 @@ export const fetchFeaturedTracks = (token, playlistId) => {
   })
 
   return {
-    type: actionTypes.FETCH_FEATURED_TRACKS,
+    type: actionTypes.FETCH_PLAYLIST_TRACKS,
     payload: request
   }
 }

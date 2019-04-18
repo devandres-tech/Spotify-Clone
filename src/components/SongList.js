@@ -14,10 +14,8 @@ const SongList = (props) => {
 
   if (props.trackList) {
     trackList = props.trackList.tracks.items;
-    console.log('tr', trackList)
     playListName = props.trackList.name;
     playListDescription = props.trackList.description;
-    console.log("in props is", props.trackList);
     trackListArray = trackList.map((track) => {
       return (
         <li key={track.track.id} onClick={() => audioElement(track.track.preview_url)}>
