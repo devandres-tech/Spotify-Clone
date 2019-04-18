@@ -20,6 +20,12 @@ export const browseViewReducer = (state = {}, action) => {
         featured: action.payload.data.playlists.items
       }
 
+    case actionTypes.FETCH_NEW_RELEASES_PLAYLIST:
+      return {
+        ...state,
+        newReleases: action.payload.data.albums.items
+      }
+
     default:
       return state;
   }

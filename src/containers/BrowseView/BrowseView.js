@@ -22,12 +22,17 @@ class BrowseView extends Component {
     this.props.fetchFeaturedPlaylist(this.props.token);
   }
 
+  onSetNewReleasesView = () => {
+    this.props.setBrowseView('newReleases');
+    this.props.fetchNewReleasesPlaylist(this.props.token);
+  }
+
   render() {
     const { browseTitle } = this.props;
     return (
       <div>
         <p onClick={() => this.onSetBrowseView()}>Genres</p>
-        <p onClick={() => this.props.setBrowseView('newReleases')}>New Releases</p>
+        <p onClick={() => this.onSetNewReleasesView()}>New Releases</p>
         <p onClick={() => this.onSetFeaturedView()}>Featured</p>
         {
           browseTitle === 'genres' ? <GenresView /> :
@@ -52,6 +57,7 @@ const mapDispatchToProps = (dispatch) => {
     setBrowseView: (title) => dispatch(actionTypes.updateBrowseView(title)),
     fetchFeaturedPlaylist: (token) => dispatch(actionTypes.fetchFeaturedPlaylist(token)),
     fetchBrowseCategories: (token) => dispatch(actionTypes.fetchBrowseCategories(token)),
+    fetchNewReleasesPlaylist: (token) => dispatch(actionTypes.fetchNewReleasesPlaylist(token))
   }
 }
 

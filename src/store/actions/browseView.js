@@ -2,7 +2,6 @@ import * as actionTypes from './actionTypes';
 import axios from '../../axios';
 
 export const updateBrowseView = (title) => {
-  console.log('title is reucer is ', title)
   return {
     type: actionTypes.UPDATE_BROWSE_VIEW,
     title
@@ -20,6 +19,21 @@ export const fetchBrowseCategories = (token) => {
 
   return {
     type: actionTypes.FETCH_BROWSE_CATEGORIES,
+    payload: request
+  }
+}
+
+export const fetchNewReleasesPlaylist = (token) => {
+  const request = axios.get('/browse/new-releases', {
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + token
+    }
+  });
+
+  return {
+    type: actionTypes.FETCH_NEW_RELEASES_PLAYLIST,
     payload: request
   }
 }

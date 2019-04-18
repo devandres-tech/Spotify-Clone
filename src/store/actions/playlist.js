@@ -3,6 +3,7 @@ import axios from '../../axios';
 
 
 export const fetchFeaturedTracks = (token, playlistId) => {
+  console.log(playlistId)
   const request = axios.get(`/playlists/${playlistId}`, {
     headers: {
       'Accept': 'application/json',
