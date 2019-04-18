@@ -23,6 +23,21 @@ export const fetchBrowseCategories = (token) => {
   }
 }
 
+export const fetchCategoryPlaylist = (token, categoryId) => {
+  const request = axios.get(`/browse/categories/${categoryId}/playlists`, {
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + token
+    }
+  });
+
+  return {
+    type: actionTypes.FETCH_CATEGORY_PLAYLIST,
+    payload: request
+  }
+}
+
 export const fetchNewReleasesPlaylist = (token) => {
   const request = axios.get('/browse/new-releases', {
     headers: {

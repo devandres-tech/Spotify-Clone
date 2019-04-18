@@ -6,6 +6,7 @@ import NewReleasesView from './NewReleases';
 import * as actionTypes from '../../store/actions';
 import Featured from './Featured';
 import SongList from '../../components/SongList';
+import GenresPlaylist from './GenresPlaylist';
 
 class BrowseView extends Component {
 
@@ -38,7 +39,8 @@ class BrowseView extends Component {
           browseTitle === 'genres' ? <GenresView /> :
             browseTitle === 'newReleases' ? <NewReleasesView /> :
               browseTitle === 'featured' ? <Featured /> :
-                browseTitle === 'featuredTrackList' ? <SongList /> : ''
+                browseTitle === 'featuredTrackList' ? <SongList /> :
+                  browseTitle === 'categoryPlaylist' ? <GenresPlaylist /> : ''
         }
       </div>
     )

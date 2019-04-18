@@ -14,6 +14,12 @@ export const browseViewReducer = (state = {}, action) => {
         categories: action.payload.data.categories.items
       }
 
+    case actionTypes.FETCH_CATEGORY_PLAYLIST:
+      return {
+        ...state,
+        categoryPlaylist: action.payload.data.playlists.items
+      }
+
     case actionTypes.FETCH_FEATURED_PLAYLIST:
       return {
         ...state,
