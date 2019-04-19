@@ -32,7 +32,7 @@ class BrowseView extends Component {
     const { browseTitle } = this.props;
     return (
       <div>
-        <p onClick={() => this.onSetBrowseView()}>Genres</p>
+        <p onClick={() => this.onSetBrowseView()}>Genres & Mood</p>
         <p onClick={() => this.onSetNewReleasesView()}>New Releases</p>
         <p onClick={() => this.onSetFeaturedView()}>Featured</p>
         {
