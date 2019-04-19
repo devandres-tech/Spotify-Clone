@@ -9,10 +9,15 @@ export const userPlaylistReducer = (state = {}, action) => {
       }
 
     case actionTypes.FETCH_USER_TRACKS:
-      console.log("tas ", action.payload)
       return {
         ...state,
         userTracks: action.payload.data.items
+      }
+
+    case actionTypes.FETCH_USER_TOP_ARTISTS:
+      return {
+        ...state,
+        userArtists: action.payload.data.items
       }
 
     default:

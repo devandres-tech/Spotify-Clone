@@ -30,3 +30,18 @@ export const fetchUserTracks = (token) => {
     payload: request
   }
 }
+
+export const fetchUserTopArtists = (token) => {
+  const request = axios.get('/me/top/artists', {
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + token
+    }
+  })
+
+  return {
+    type: actionTypes.FETCH_USER_TOP_ARTISTS,
+    payload: request
+  }
+}
