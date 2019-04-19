@@ -5,22 +5,33 @@ import * as actionTypes from '../store/actions/index';
 
 class Albums extends Component {
 
-  componentDidMount() {
-    // this.props.fetchUserAlbums(this.props.token);
-    // this.props.setBrowseView('trackList')
-  }
   render() {
+
+    const { tracks } = this.props;
+    let trackList;
+    if (tracks) {
+      trackList = tracks.map((track) => {
+        return (
+          <div key={track.track.id}>
+            <img src={track.track.album.images[1].url} alt="" />
+            <p>{track.track.album.name}</p>
+            <p>{track.track.album.artists[0].name}</p>
+          </div>
+        )
+      })
+    }
+
     return (
-      <div>
-        <h1>THis is the alubmss...</h1>
-      </div >
+      <div className="browse-container">
+        {trackList}
+      </div>
     )
   }
 }
 
 const mapStateToProps = (state) => {
   return {
-    token: state.tokenReducer.token
+    tracks: state.userReducer.userTracks
   }
 }
 

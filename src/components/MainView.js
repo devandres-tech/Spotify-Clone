@@ -37,7 +37,7 @@ class MainView extends Component {
         return <Albums />
       // set default view to to browse view
       default:
-        return <BrowseView />
+        return <SongsView />
     }
   }
   render() {

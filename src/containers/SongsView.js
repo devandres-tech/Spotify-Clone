@@ -5,8 +5,10 @@ import * as actionTypes from '../store/actions'
 
 class SongsView extends Component {
 
-  componentDidMount() {
-    this.props.fetchUserTracks(this.props.token);
+  componentDidUpdate(prevProps) {
+    if (this.props.token !== prevProps.token) {
+      this.props.fetchUserTracks(this.props.token);
+    }
   }
 
   render() {
