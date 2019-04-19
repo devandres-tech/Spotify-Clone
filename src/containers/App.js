@@ -27,6 +27,11 @@ class App extends Component {
     }
   }
 
+  audioControls = (songUrl) => {
+    const audio = new Audio(songUrl);
+    audio.play();
+  }
+
   render() {
     return (
       <div className="container">

@@ -14,12 +14,6 @@ export const playlistReducer = (state = {}, action) => {
         data: action.payload.data.items
       }
 
-    case actionTypes.FETCH_RECENTLY_PLAYED_TRACKS:
-      return {
-        ...state,
-        data: action.payload.data.items
-      }
-
     default:
       return state;
   }

@@ -7,9 +7,7 @@ class RecentlyPlayed extends Component {
 
   componentDidMount() {
     this.props.fetchRecentlyPlayedTracks(this.props.token);
-    this.props.setBrowseView('trackList')
   }
-
 
   render() {
     const { tracks } = this.props;
@@ -18,7 +16,6 @@ class RecentlyPlayed extends Component {
     if (tracks) {
       trackList = tracks.map((track) => {
         return (
-
           <div key={track.track.id}>
             {/* <img src={track.images[0].url} alt="" /> */}
             <p>{track.track.album.name}</p>
@@ -40,7 +37,7 @@ class RecentlyPlayed extends Component {
 const mapStateToProps = (state) => {
   return {
     token: state.tokenReducer.token,
-    tracks: state.playlistReducer.data
+    tracks: state.userReducer.recentTracks
   }
 }
 
@@ -48,6 +45,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     fetchRecentlyPlayedTracks: (token) => dispatch(actionTypes.fetchRecentlyPlayed(token)),
     setBrowseView: (title) => dispatch(actionTypes.updateBrowseView(title)),
+    fetchAlbumTracks: (token, playlistId) => dispatch(actionTypes.fetchAlbumTracks(token, playlistId))
   }
 }
 

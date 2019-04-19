@@ -4,8 +4,9 @@ import { connect } from 'react-redux';
 import BrowseView from '../containers/BrowseView/BrowseView';
 import SongsView from '../containers/SongsView';
 import RecentlyPlayed from '../containers/RecentlyPlayed';
-import GenresView from '../containers/BrowseView/Genres';
-import * as actionTypes from '../store/actions'
+import * as actionTypes from '../store/actions';
+import Artists from '../containers/Artists';
+import Albums from '../containers/Albums';
 
 
 class MainView extends Component {
@@ -30,6 +31,10 @@ class MainView extends Component {
         return <SongsView />
       case 'RecentlyPlayed':
         return <RecentlyPlayed />
+      case 'Artists':
+        return <Artists />
+      case 'Albums':
+        return <Albums />
       // set default view to to browse view
       default:
         return <BrowseView />

@@ -18,5 +18,9 @@ export {
 export {
   fetchPlaylistTracks,
   fetchAlbumTracks,
-  fetchRecentlyPlayed
 } from './playlist'
+
+export {
+  fetchRecentlyPlayed,
+  fetchUserTracks
+} from './user';

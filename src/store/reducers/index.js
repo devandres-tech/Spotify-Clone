@@ -3,10 +3,12 @@ import tokenReducer from './tokenReducer';
 import mainViewReducer from './mainViewReducer';
 import browseViewReducer from './browseViewReducer';
 import playlistReducer from './playlistReducer';
+import userReducer from './userReducer';
 
 export default combineReducers({
   tokenReducer,
   mainViewReducer,
   browseViewReducer,
-  playlistReducer
+  playlistReducer,
+  userReducer
 });
