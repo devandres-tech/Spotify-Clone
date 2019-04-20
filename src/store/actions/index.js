@@ -24,5 +24,6 @@ export {
   fetchRecentlyPlayed,
   fetchUserTracks,
   fetchUserTopArtists,
-  fetchUserPlaylists
+  fetchUserPlaylists,
+  fetchUserProfile
 } from './user';

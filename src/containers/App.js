@@ -37,7 +37,9 @@ class App extends Component {
     // in the left side menu
     if (this.props.token) {
       this.props.fetchUserPlaylists(this.props.token);
+      this.props.fetchUserProfile(this.props.token);
     }
+
     return (
       <div className="container">
         <LeftSideMenu />
@@ -65,7 +67,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     setToken: (token) => dispatch(actionTypes.setToken(token)),
-    fetchUserPlaylists: (token) => dispatch(actionTypes.fetchUserPlaylists(token))
+    fetchUserPlaylists: (token) => dispatch(actionTypes.fetchUserPlaylists(token)),
+    fetchUserProfile: (token) => dispatch(actionTypes.fetchUserProfile(token))
   }
 }
 
