@@ -7,6 +7,7 @@ import RecentlyPlayed from '../containers/RecentlyPlayed';
 import * as actionTypes from '../store/actions';
 import Artists from '../containers/Artists';
 import Albums from '../containers/Albums';
+import SongList from '../components/SongList';
 
 
 class MainView extends Component {
@@ -35,6 +36,8 @@ class MainView extends Component {
         return <Artists />
       case 'Albums':
         return <Albums />
+      case 'PlaylistTracks':
+        return <SongList />
       // set default view to to browse view
       default:
         return <SongsView />

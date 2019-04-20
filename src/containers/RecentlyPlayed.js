@@ -14,9 +14,9 @@ class RecentlyPlayed extends Component {
     let trackList;
 
     if (tracks) {
-      trackList = tracks.map((track) => {
+      trackList = tracks.map((track, idx) => {
         return (
-          <div key={track.track.id}>
+          <div key={track.track.id + idx}>
             {/* <img src={track.images[0].url} alt="" /> */}
             <p>{track.track.album.name}</p>
             <p>{track.track.name}</p>

@@ -6,11 +6,18 @@ import * as actionTypes from '../store/actions';
 
 const LeftSideMenu = (props) => {
 
+  const getPlaylistTracks = (playlistId) => {
+    if (props.token) {
+      props.fetchPlaylistTracks(props.token, playlistId);
+      props.updateTitle('PlaylistTracks')
+    }
+  }
+
   const renderUserPlaylist = () => {
     if (props.userPlaylists) {
       const playlistNames = props.userPlaylists.map((playlist) => {
         return (
-          <li key={playlist.id}>
+          <li onClick={() => getPlaylistTracks(playlist.id)} key={playlist.id}>
             {playlist.name}
           </li>
         )
@@ -57,7 +64,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
 
   return {
-    updateTitle: (title) => dispatch(actionTypes.updateTitle(title))
+    updateTitle: (title) => dispatch(actionTypes.updateTitle(title)),
+    fetchPlaylistTracks: (token, playlistId) => dispatch(actionTypes.fetchPlaylistTracks(token, playlistId))
   }
 }
 

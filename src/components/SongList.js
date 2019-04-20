@@ -18,9 +18,9 @@ const SongList = (props) => {
       trackList = props.trackList.tracks.items;
       playListName = props.trackList.name;
       playListDescription = props.trackList.description;
-      trackListArray = trackList.map((track) => {
+      trackListArray = trackList.map((track, idx) => {
         return (
-          <li key={track.track.id} onClick={() => audioElement(track.track.preview_url)}>
+          <li key={track.track.id + idx} onClick={() => audioElement(track.track.preview_url)}>
             <p>{track.track.name}</p>
           </li>
         )
