@@ -45,3 +45,18 @@ export const fetchUserTopArtists = (token) => {
     payload: request
   }
 }
+
+export const fetchUserPlaylists = (token) => {
+  const request = axios.get('/me/playlists', {
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + token
+    }
+  });
+
+  return {
+    type: actionTypes.FETCH_USER_PLAYLISTS,
+    payload: request
+  }
+}

@@ -20,6 +20,12 @@ export const userPlaylistReducer = (state = {}, action) => {
         userArtists: action.payload.data.items
       }
 
+    case actionTypes.FETCH_USER_PLAYLISTS:
+      return {
+        ...state,
+        userPlaylists: action.payload.data.items
+      }
+
     default:
       return state;
   }

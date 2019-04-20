@@ -1,18 +1,22 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { updateTitle, fetchBrowseCategories, fetchFeaturedPlaylist } from '../store/actions';
-import { bindActionCreators } from "redux";
 
-function LeftSideMenu(props) {
+import * as actionTypes from '../store/actions';
 
-  const renderPlaylist = () => {
-    return (
-      <>
-        <li>New Releases</li>
-        <li>Albums</li>
-        <li>artists</li>
-      </>
-    )
+
+const LeftSideMenu = (props) => {
+
+  const renderUserPlaylist = () => {
+    if (props.userPlaylists) {
+      const playlistNames = props.userPlaylists.map((playlist) => {
+        return (
+          <li key={playlist.id}>
+            {playlist.name}
+          </li>
+        )
+      })
+      return playlistNames;
+    }
   }
 
   const renderUserLibrary = () => {
@@ -38,23 +42,23 @@ function LeftSideMenu(props) {
       <li>YOUR LIBRARY</li>
       {renderUserLibrary()}
       <li>PLAYLISTS</li>
-      {renderPlaylist()}
+      {renderUserPlaylist()}
     </ul>
   )
 }
 
 const mapStateToProps = (state) => {
   return {
-    token: state.tokenReducer.token
+    token: state.tokenReducer.token,
+    userPlaylists: state.userReducer.userPlaylists
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({
-    updateTitle,
-    fetchBrowseCategories,
-    fetchFeaturedPlaylist
-  }, dispatch)
+
+  return {
+    updateTitle: (title) => dispatch(actionTypes.updateTitle(title))
+  }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(LeftSideMenu);
