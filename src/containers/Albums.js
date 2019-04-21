@@ -6,7 +6,6 @@ import * as actionTypes from '../store/actions/index';
 class Albums extends Component {
 
   render() {
-
     const { tracks } = this.props;
     let trackList;
     if (tracks) {

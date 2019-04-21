@@ -36,6 +36,14 @@ class App extends Component {
     // Fetch users playlists to render the playlists names
     // in the left side menu
     if (this.props.token) {
+      // Get the ID's for each artist
+      if (this.props.tracks) {
+        const artistIds = this.props.tracks.map((track) => {
+          return track.track.artists[0].id;
+        })
+        // Get several artists
+        this.props.fetchArtists(this.props.token, artistIds.toString());
+      }
       this.props.fetchUserPlaylists(this.props.token);
       this.props.fetchUserProfile(this.props.token);
     }
@@ -60,7 +68,8 @@ App.propTypes = {
 
 const mapStateToProps = (state) => {
   return {
-    token: state.tokenReducer.token
+    token: state.tokenReducer.token,
+    tracks: state.userReducer.userTracks
   }
 }
 
@@ -68,7 +77,8 @@ const mapDispatchToProps = (dispatch) => {
   return {
     setToken: (token) => dispatch(actionTypes.setToken(token)),
     fetchUserPlaylists: (token) => dispatch(actionTypes.fetchUserPlaylists(token)),
-    fetchUserProfile: (token) => dispatch(actionTypes.fetchUserProfile(token))
+    fetchUserProfile: (token) => dispatch(actionTypes.fetchUserProfile(token)),
+    fetchArtists: (token, artistId) => dispatch(actionTypes.fetchArtists(token, artistId))
   }
 }
 

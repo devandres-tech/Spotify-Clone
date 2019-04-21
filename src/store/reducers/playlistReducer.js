@@ -8,6 +8,18 @@ export const playlistReducer = (state = {}, action) => {
         data: action.payload.data
       }
 
+    case actionTypes.FETCH_ARTISTS:
+      return {
+        ...state,
+        artists: action.payload.data
+      }
+
+    case actionTypes.FETCH_ARTIST_TRACKS:
+      return {
+        ...state,
+        artistTracks: action.payload.data.tracks
+      }
+
     case actionTypes.FETCH_ALBUM_TRACKS:
       return {
         ...state,

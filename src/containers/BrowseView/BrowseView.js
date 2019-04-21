@@ -10,6 +10,10 @@ import GenresPlaylist from './GenresPlaylist';
 
 class BrowseView extends Component {
 
+  componentDidMount() {
+    this.props.updateSongListView('BrowseViewTracks');
+  }
+
   // Update browse title and dispatch action
   onSetBrowseView = () => {
     this.props.setBrowseView('genres');
@@ -40,7 +44,7 @@ class BrowseView extends Component {
             browseTitle === 'newReleases' ? <NewReleasesView /> :
               browseTitle === 'featured' ? <Featured /> :
                 browseTitle === 'trackList' ? <SongList /> :
-                  browseTitle === 'categoryPlaylist' ? <GenresPlaylist /> : ''
+                  browseTitle === 'categoryPlaylist' ? <GenresPlaylist /> : <GenresView />
         }
       </div>
     )
@@ -57,6 +61,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     setBrowseView: (title) => dispatch(actionTypes.updateBrowseView(title)),
+    updateSongListView: (title) => dispatch(actionTypes.updateSongListView(title)),
     fetchFeaturedPlaylist: (token) => dispatch(actionTypes.fetchFeaturedPlaylist(token)),
     fetchBrowseCategories: (token) => dispatch(actionTypes.fetchBrowseCategories(token)),
     fetchNewReleasesPlaylist: (token) => dispatch(actionTypes.fetchNewReleasesPlaylist(token))

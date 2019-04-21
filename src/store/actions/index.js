@@ -4,7 +4,8 @@ export {
 } from './token';
 
 export {
-  updateTitle
+  updateTitle,
+  updateSongListView
 } from './mainView';
 
 export {
@@ -18,12 +19,13 @@ export {
 export {
   fetchPlaylistTracks,
   fetchAlbumTracks,
+  fetchArtists,
+  fetchArtistTracks
 } from './playlist';
 
 export {
   fetchRecentlyPlayed,
   fetchUserTracks,
-  fetchUserTopArtists,
   fetchUserPlaylists,
   fetchUserProfile
 } from './user';

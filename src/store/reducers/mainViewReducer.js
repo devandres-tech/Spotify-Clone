@@ -8,6 +8,12 @@ export const mainViewReducer = (state = {}, action) => {
         title: action.title
       }
 
+    case actionTypes.UPDATE_SONG_LIST_VIEW:
+      return {
+        ...state,
+        songView: action.title
+      }
+
     default:
       return state;
   }

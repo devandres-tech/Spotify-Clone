@@ -31,3 +31,33 @@ export const fetchAlbumTracks = (token, albumId) => {
     payload: request
   }
 }
+
+export const fetchArtists = (token, artistIds) => {
+  const request = axios.get(`/artists/?ids=${artistIds}`, {
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + token
+    }
+  });
+
+  return {
+    type: actionTypes.FETCH_ARTISTS,
+    payload: request
+  }
+}
+
+export const fetchArtistTracks = (token, artistId) => {
+  const request = axios.get(`/artists/${artistId}/top-tracks?country=US`, {
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + token
+    }
+  });
+
+  return {
+    type: actionTypes.FETCH_ARTIST_TRACKS,
+    payload: request
+  }
+}

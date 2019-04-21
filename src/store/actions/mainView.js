@@ -6,3 +6,10 @@ export const updateTitle = (title) => {
     title
   }
 }
+
+export const updateSongListView = (title) => {
+  return {
+    type: actionTypes.UPDATE_SONG_LIST_VIEW,
+    title
+  }
+}

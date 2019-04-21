@@ -14,12 +14,6 @@ export const userPlaylistReducer = (state = {}, action) => {
         userTracks: action.payload.data.items
       }
 
-    case actionTypes.FETCH_USER_TOP_ARTISTS:
-      return {
-        ...state,
-        userArtists: action.payload.data.items
-      }
-
     case actionTypes.FETCH_USER_PROFILE:
       return {
         ...state,
