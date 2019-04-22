@@ -45,7 +45,7 @@ class MainView extends Component {
   }
   render() {
     return (
-      <div>
+      <div className="container__main-view--content">
         {this.renderMainViewSwitch()}
       </div>
     )

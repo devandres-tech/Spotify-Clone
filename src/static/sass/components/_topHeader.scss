@@ -1,0 +1,20 @@
+.container__main-view--topHeader {
+  background-color: #181818;
+  color: #fff;
+
+  display: flex;
+  flex-direction: row;
+  width: inherit;
+  justify-content: flex-end;
+
+  & .topHeader-left-side {
+    display: flex;
+    position: relative;
+    background-color: red;
+  }
+
+  .profile-img {
+    height: 2rem;
+    border-radius: 50%;
+  }
+}
