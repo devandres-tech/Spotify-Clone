@@ -44,12 +44,18 @@ const LeftSideMenu = (props) => {
 
   return (
     <ul className="container__left-menu">
-      <li onClick={onBrowseClick}>Browse</li>
-      <li>Radio</li>
-      <li>YOUR LIBRARY</li>
-      {renderUserLibrary()}
-      <li>PLAYLISTS</li>
-      {renderUserPlaylist()}
+      <div className="browse-section">
+        <li onClick={onBrowseClick}>Browse</li>
+        <li>Radio</li>
+      </div>
+      <div className="library-items">
+        <p>YOUR LIBRARY</p>
+        {renderUserLibrary()}
+      </div>
+      <div className="playlist-items">
+        <p>PLAYLISTS</p>
+        {renderUserPlaylist()}
+      </div>
     </ul>
   )
 }

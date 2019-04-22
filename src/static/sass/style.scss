@@ -1,8 +1,9 @@
+@import "abstracts/variables";
+
 @import "base/base";
 
 @import "components/browseView";
+@import "components/footer";
 @import "components/leftMenu";
 @import "components/mainView";
 @import "components/topHeader";
-
-@import "layout/mainLayout";

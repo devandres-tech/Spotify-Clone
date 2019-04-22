@@ -1,3 +1,9 @@
 .container__main-view--content {
-  height: 90.5vh;
+  height: 93%;
+  overflow-y: scroll;
+}
+
+.main-view-title {
+  color: $color-white;
+  background-color: $color-dark;
 }

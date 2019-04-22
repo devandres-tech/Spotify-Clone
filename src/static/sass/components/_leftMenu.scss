@@ -1,1 +1,55 @@
-.container {}
+.container__left-menu {
+  background-color: #181818;
+  color: rgb(163, 161, 161);
+  padding-left: 1rem;
+
+  .browse-section {
+    padding-top: 2rem;
+
+    &>li {
+      padding-bottom: .5rem;
+
+      &:hover {
+        color: #fff;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .library-items {
+    padding-top: 2rem;
+
+    &> :first-child {
+      font-size: .9rem;
+      padding-bottom: .3rem;
+    }
+
+    &>li {
+      padding-bottom: .5rem;
+
+      &:hover {
+        color: #fff;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .playlist-items {
+    padding-top: 2rem;
+
+    &> :first-child {
+      font-size: .9rem;
+      padding-bottom: .3rem;
+    }
+
+    &>li {
+      padding-bottom: .5rem;
+
+      &:hover {
+        color: #fff;
+        cursor: pointer;
+      }
+    }
+  }
+
+}

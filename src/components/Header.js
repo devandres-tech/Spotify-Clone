@@ -9,14 +9,16 @@ const Header = (props) => {
     imageUrl = props.user.images[0].url
   }
   return (
-    <div className="container__main-view--topHeader">
-      <h1>{props.title}</h1>
-      <input />
-      <div className="topHeader-left-side">
-        <img className="profile-img" src={imageUrl} alt="" />
-        <p>{username}</p>
+    <>
+      <div className="container__main-view--topHeader">
+        <input />
+        <div className="topHeader-left-side">
+          <img className="profile-img" src={imageUrl} alt="" />
+          <p>{username}</p>
+        </div>
       </div>
-    </div>
+      <h1 className="main-view-title">{props.title}</h1>
+    </>
   )
 }
 
