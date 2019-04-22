@@ -1,12 +1,22 @@
 .container__main-view--topHeader {
   background-color: #181818;
   color: #fff;
+  padding-top: .5rem;
+  padding-bottom: 1rem;
 
   display: flex;
   flex-direction: row;
   width: inherit;
 
+  &>input {
+    border-radius: 5rem;
+    border-style: none;
+    height: 1.4rem;
+    width: 13rem;
+  }
+
   & .topHeader-left-side {
+    padding-right: 4rem;
     display: flex;
     justify-content: flex-end;
     width: 100%;
@@ -14,8 +24,22 @@
     align-content: center;
   }
 
-  .profile-img {
-    height: 2rem;
-    border-radius: 50%;
+  .profile-username {
+    padding-top: .3rem;
+    padding-left: .4rem;
   }
+
+  .profile-img {
+    height: 28px;
+    border-radius: 50px;
+  }
+}
+
+.main-view-title {
+  color: $color-white;
+  background-color: $color-dark;
+  font-size: 3.2rem;
+  padding-bottom: 1rem;
+  font-family: 'Mukta', sans-serif;
+  font-weight: 700;
 }

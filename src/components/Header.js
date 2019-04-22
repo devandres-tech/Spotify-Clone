@@ -11,10 +11,10 @@ const Header = (props) => {
   return (
     <>
       <div className="container__main-view--topHeader">
-        <input />
+        <input placeholder="Search" />
         <div className="topHeader-left-side">
           <img className="profile-img" src={imageUrl} alt="" />
-          <p>{username}</p>
+          <p className="profile-username">{username}</p>
         </div>
       </div>
       <h1 className="main-view-title">{props.title}</h1>

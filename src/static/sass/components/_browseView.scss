@@ -1,10 +1,20 @@
 .browse-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
   grid-auto-rows: 1fr;
-  grid-gap: 1rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  grid-gap: .5rem;
+  padding-left: .5rem;
+  padding-right: .5rem;
+
+  &>div>img {
+    height: 15rem;
+  }
+
+  &>div>p.category-title {
+    position: relative;
+    top: -4.5rem;
+    left: 6rem;
+  }
 
   &::before {
     content: '';
@@ -20,8 +30,7 @@
   }
 
   &>* {
-    background: rgba(0, 0, 0, 0.1);
-    border: 1px white solid;
+    background: $color-dark;
   }
 }
 

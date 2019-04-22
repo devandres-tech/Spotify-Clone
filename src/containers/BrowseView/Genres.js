@@ -16,7 +16,7 @@ const Genres = (props) => {
       return (
         <div onClick={() => onAlbumClick(album.id)} key={album.id}>
           <img src={album.icons[0].url} alt="" />
-          <p>{album.name}</p>
+          <p className="category-title">{album.name}</p>
         </div>
       )
     })
