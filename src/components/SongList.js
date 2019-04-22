@@ -82,7 +82,8 @@ const mapStateToProps = (state) => {
   return {
     songView: state.mainViewReducer.songView,
     trackList: state.playlistReducer.data,
-    artistTrackList: state.playlistReducer.artistTracks
+    artistTrackList: state.playlistReducer.artistTracks,
+    playlistTracks: state.playlistReducer.playlistTracks
   }
 }
 

@@ -131,6 +131,7 @@
 
 body {
   box-sizing: border-box;
+  font-family: 'Mukta', sans-serif;
 }
 
 // set up grid area 
@@ -145,7 +146,7 @@ body {
   }
 
   &__main-view {
-    background-color: rgb(216, 148, 148);
+    background-color: rgb(104, 103, 103);
     grid-column: 2 / 3;
     grid-row: 1 / 2;
   }

@@ -24,3 +24,23 @@
     border: 1px white solid;
   }
 }
+
+.browse-view-menu {
+  background-color: $color-dark;
+  padding-top: 2rem;
+  padding-left: 1rem;
+  padding-bottom: 2rem;
+  display: flex;
+  text-transform: uppercase;
+  color: $color-white;
+  font-size: .8rem;
+
+  &>p {
+    padding-right: 1.4rem;
+    letter-spacing: .09rem;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}

@@ -9,6 +9,7 @@ const LeftSideMenu = (props) => {
   const getPlaylistTracks = (playlistId) => {
     if (props.token) {
       props.fetchPlaylistTracks(props.token, playlistId);
+      props.updateSongListView('PlaylistTracks')
       props.updateTitle('PlaylistTracks')
     }
   }
@@ -71,6 +72,7 @@ const mapDispatchToProps = (dispatch) => {
 
   return {
     updateTitle: (title) => dispatch(actionTypes.updateTitle(title)),
+    updateSongListView: (title) => dispatch(actionTypes.updateSongListView(title)),
     fetchPlaylistTracks: (token, playlistId) => dispatch(actionTypes.fetchPlaylistTracks(token, playlistId))
   }
 }

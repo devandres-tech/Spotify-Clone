@@ -35,10 +35,12 @@ class BrowseView extends Component {
   render() {
     const { browseTitle } = this.props;
     return (
-      <div>
-        <p onClick={() => this.onSetBrowseView()}>Genres & Mood</p>
-        <p onClick={() => this.onSetNewReleasesView()}>New Releases</p>
-        <p onClick={() => this.onSetFeaturedView()}>Featured</p>
+      <>
+        <div className="browse-view-menu">
+          <p onClick={() => this.onSetBrowseView()}>Genres & Mood</p>
+          <p onClick={() => this.onSetNewReleasesView()}>New Releases</p>
+          <p onClick={() => this.onSetFeaturedView()}>Featured</p>
+        </div>
         {
           browseTitle === 'genres' ? <GenresView /> :
             browseTitle === 'newReleases' ? <NewReleasesView /> :
@@ -46,7 +48,7 @@ class BrowseView extends Component {
                 browseTitle === 'trackList' ? <SongList /> :
                   browseTitle === 'categoryPlaylist' ? <GenresPlaylist /> : <GenresView />
         }
-      </div>
+      </>
     )
   }
 }

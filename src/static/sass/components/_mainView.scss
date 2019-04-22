@@ -1,9 +1,13 @@
 .container__main-view--content {
   height: 93%;
   overflow-y: scroll;
+  color: $color-white;
 }
 
 .main-view-title {
   color: $color-white;
   background-color: $color-dark;
+  font-size: 3.2rem;
+  font-family: 'Mukta', sans-serif;
+  font-weight: 700;
 }

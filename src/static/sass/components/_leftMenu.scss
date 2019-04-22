@@ -1,7 +1,8 @@
 .container__left-menu {
   background-color: #181818;
   color: rgb(163, 161, 161);
-  padding-left: 1rem;
+  padding-left: 1.4rem;
+  // font-size: 1rem;
 
   .browse-section {
     padding-top: 2rem;
@@ -20,12 +21,15 @@
     padding-top: 2rem;
 
     &> :first-child {
-      font-size: .9rem;
-      padding-bottom: .3rem;
+      letter-spacing: .05rem;
+      font-size: .8rem;
+      padding-bottom: .8rem;
     }
 
     &>li {
-      padding-bottom: .5rem;
+      padding-bottom: 1rem;
+      font-weight: 700;
+      font-size: .9rem;
 
       &:hover {
         color: #fff;
@@ -36,14 +40,16 @@
 
   .playlist-items {
     padding-top: 2rem;
+    font-weight: 300;
 
     &> :first-child {
-      font-size: .9rem;
-      padding-bottom: .3rem;
+      letter-spacing: .05rem;
+      font-size: .8rem;
+      padding-bottom: .8rem;
     }
 
     &>li {
-      padding-bottom: .5rem;
+      padding-bottom: 1rem;
 
       &:hover {
         color: #fff;
