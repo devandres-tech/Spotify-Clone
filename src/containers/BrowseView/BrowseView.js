@@ -37,7 +37,7 @@ class BrowseView extends Component {
     return (
       <>
         <div className="browse-view-menu">
-          <p onClick={() => this.onSetBrowseView()}>Genres & Mood</p>
+          <p onClick={() => this.onSetBrowseView()}>Genres & Moods</p>
           <p onClick={() => this.onSetNewReleasesView()}>New Releases</p>
           <p onClick={() => this.onSetFeaturedView()}>Featured</p>
         </div>

@@ -18,8 +18,8 @@ class Artists extends Component {
     let artistList;
     artistList = artists.map((artist) => {
       return (
-        <div onClick={() => this.onArtistClick(artist.id)} key={artist.id}>
-          <img src={artist.images[1].url} alt="" />
+        <div className="artist-container" onClick={() => this.onArtistClick(artist.id)} key={artist.id}>
+          <img className="artist-img" src={artist.images[1].url} alt="" />
           <p>{artist.name}</p>
         </div>
       )
