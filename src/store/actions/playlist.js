@@ -17,7 +17,7 @@ export const fetchPlaylistTracks = (token, playlistId) => {
   }
 }
 
-export const fetchAlbumTracks = (token, albumId) => {
+export const fetchAlbumTracks = (token, albumId, albumImg) => {
   const request = axios.get(`/albums/${albumId}/tracks`, {
     headers: {
       'Accept': 'application/json',

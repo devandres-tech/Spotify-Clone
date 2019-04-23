@@ -10,7 +10,6 @@ class Albums extends Component {
     let trackList;
     if (tracks) {
       trackList = tracks.map((track) => {
-        console.log('tracks is ', track)
         return (
           <div key={track.track.id}>
             <img src={track.track.album.images[1].url} alt="" />

@@ -29,3 +29,8 @@ export {
   fetchUserPlaylists,
   fetchUserProfile
 } from './user';
+
+export {
+  setPlayerTrack,
+  setAlbumImage
+} from './playerControls'

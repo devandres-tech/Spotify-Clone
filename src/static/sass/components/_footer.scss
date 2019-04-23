@@ -2,4 +2,13 @@
   color: $color-white;
   padding-bottom: 3.5rem;
   background-color: $color-dark-light;
+
+  &--album-view {
+    display: flex;
+  }
+
+  &>img {
+    padding-left: 1rem;
+    padding-top: 1rem;
+  }
 }
