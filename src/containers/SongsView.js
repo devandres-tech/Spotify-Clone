@@ -37,7 +37,7 @@ class SongsView extends Component {
     }
 
     return (
-      <div>
+      <div className="song-list">
         {trackList}
       </div>
     )

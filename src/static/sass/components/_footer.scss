@@ -1,22 +1,23 @@
 .container__footer {
+  font-family: 'Mukta',
+    sans-serif;
+  font-weight: 300;
   color: $color-white;
-  // padding-top: 2rem;
-  height: 5.4rem;
+  height: 5.9rem;
   background-color: $color-dark-light;
   display: flex;
 
-
   &--album-view {
-    // margin: 200px;
+    min-width: 17rem;
     display: flex;
     padding-left: 1rem;
     padding-top: 1rem;
 
     & .album-description {
-      // display: flex;
       align-self: center;
       padding-left: 1rem;
       font-size: .9rem;
+      max-width: 12rem;
 
       &>p {
         padding-bottom: .5rem;
@@ -30,13 +31,57 @@
 
 
   & .player-container {
-    display: inline-block;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    margin: 0 20%;
+
+    & .player-controls {
+      padding-bottom: 1rem;
+      margin: 0 auto;
+      color: rgb(179, 179, 179);
+
+      &>.fa-play-circle {
+        font-size: 2.2rem;
+        -webkit-text-stroke: 2px rgb(46, 45, 45);
+
+        &:hover {
+          cursor: pointer;
+          transform: scale(1.05);
+          transition: all .2s;
+          color: #fff;
+        }
+      }
+
+      &>.fa-step-backward {
+        &:hover {
+          cursor: pointer;
+          color: #fff;
+        }
+
+        font-size: 15px;
+        padding-right: 1.8rem;
+        transform: translateY(-4px);
+      }
+
+      &>.fa-step-forward {
+        &:hover {
+          cursor: pointer;
+          color: #fff;
+        }
+
+        font-size: 15px;
+        transform: translateY(-4px);
+        padding-left: 2rem;
+      }
+
+    }
 
     & .progress-bar-container {
       display: flex;
 
       & .progress-bar {
-        height: 4px;
+        height: 2px;
         width: 300px;
         margin-left: 1rem;
         margin-right: 1rem;

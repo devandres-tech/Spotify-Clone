@@ -78,7 +78,7 @@ const SongList = (props) => {
   }
 
   const trackListContainer = (
-    <div>
+    <div className="song-list">
       <h1>{playListName}</h1>
       <p>{playListDescription}</p>
       <ul>
@@ -88,7 +88,7 @@ const SongList = (props) => {
   )
 
   const trackListArtistContainer = (
-    <div>
+    <div className="song-list">
       <ul>
         {trackListArtistArray}
       </ul>

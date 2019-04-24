@@ -2,6 +2,9 @@
   display: grid;
   padding-left: 1.8rem;
   grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+  font-family: 'Mukta',
+    sans-serif;
+  font-weight: 300;
 
   &>div>img {
     height: 12rem;
@@ -41,6 +44,9 @@
 }
 
 .browse-view-menu {
+  font-family: 'Mukta',
+    sans-serif;
+  font-weight: 700;
   background-color: $color-dark;
   padding-top: 2rem;
   padding-left: 1.8rem;

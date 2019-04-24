@@ -1,5 +1,5 @@
 .container__main-view--content {
-  height: 87%;
+  height: 84%;
   overflow-y: scroll;
   color: $color-white;
   background-color: $color-dark;
@@ -8,7 +8,6 @@
 .artist-img {
   border-radius: 50%;
   margin-top: 2rem;
-  // height: 100%;
   object-fit: cover;
 }
 
