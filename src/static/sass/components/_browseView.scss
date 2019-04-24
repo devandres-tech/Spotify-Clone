@@ -1,5 +1,6 @@
 .browse-container {
   display: grid;
+  padding-left: 1.8rem;
   grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
 
   &>div>img {
@@ -42,7 +43,7 @@
 .browse-view-menu {
   background-color: $color-dark;
   padding-top: 2rem;
-  padding-left: 1rem;
+  padding-left: 1.8rem;
   padding-bottom: 2rem;
   display: flex;
   text-transform: uppercase;

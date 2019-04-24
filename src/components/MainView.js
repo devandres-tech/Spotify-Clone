@@ -30,7 +30,7 @@ class MainView extends Component {
         return <BrowseView />
       case 'Songs':
         return <SongsView />
-      case 'RecentlyPlayed':
+      case 'Recently Played':
         return <RecentlyPlayed />
       case 'Artists':
         return <Artists />

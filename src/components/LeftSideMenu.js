@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+// import BrowseIcon from '../static/images/box.svg';
 
 import * as actionTypes from '../store/actions';
 
@@ -46,7 +47,9 @@ const LeftSideMenu = (props) => {
   return (
     <ul className="container__left-menu">
       <div className="browse-section">
-        <li onClick={onBrowseClick}>Browse</li>
+        <li onClick={onBrowseClick}>
+          Browse
+        </li>
         <li>Radio</li>
       </div>
       <div className="library-items">

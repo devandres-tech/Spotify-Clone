@@ -9,6 +9,15 @@ class RecentlyPlayed extends Component {
     this.props.fetchRecentlyPlayedTracks(this.props.token);
   }
 
+  setCurrentPlayerTrack = (track) => {
+    // Set album image on footer
+    if (track.album) {
+      this.props.setAlbumImage(track.album.images[2].url)
+    }
+    // Set track on footer
+    this.props.setPlayerTrack(track)
+  }
+
   render() {
     const { tracks } = this.props;
     let trackList;
@@ -16,8 +25,8 @@ class RecentlyPlayed extends Component {
     if (tracks) {
       trackList = tracks.map((track, idx) => {
         return (
-          <div key={track.track.id + idx}>
-            {/* <img src={track.images[0].url} alt="" /> */}
+          <div key={track.track.id + idx} onClick={() => this.setCurrentPlayerTrack(track.track)}>
+            <img src={track.track.album.images[1].url} alt="" />
             <p>{track.track.album.name}</p>
             <p>{track.track.name}</p>
           </div>
@@ -27,7 +36,7 @@ class RecentlyPlayed extends Component {
 
 
     return (
-      <div>
+      <div className="browse-container">
         {trackList}
       </div>
     )
@@ -45,7 +54,10 @@ const mapDispatchToProps = (dispatch) => {
   return {
     fetchRecentlyPlayedTracks: (token) => dispatch(actionTypes.fetchRecentlyPlayed(token)),
     setBrowseView: (title) => dispatch(actionTypes.updateBrowseView(title)),
-    fetchAlbumTracks: (token, playlistId) => dispatch(actionTypes.fetchAlbumTracks(token, playlistId))
+    fetchAlbumTracks: (token, playlistId) => dispatch(actionTypes.fetchAlbumTracks(token, playlistId)),
+    setPlayerTrack: (track) => dispatch(actionTypes.setPlayerTrack(track)),
+    setAlbumImage: (imageUrl) => dispatch(actionTypes.setAlbumImage(imageUrl)),
+
   }
 }
 

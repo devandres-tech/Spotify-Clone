@@ -5,13 +5,22 @@ import * as actionTypes from '../store/actions/index';
 
 class Albums extends Component {
 
+  setCurrentPlayerTrack = (track) => {
+    // Set album image on footer
+    if (track.album) {
+      this.props.setAlbumImage(track.album.images[2].url)
+    }
+    // Set track on footer
+    this.props.setPlayerTrack(track)
+  }
+
   render() {
     const { tracks } = this.props;
     let trackList;
     if (tracks) {
       trackList = tracks.map((track) => {
         return (
-          <div key={track.track.id}>
+          <div key={track.track.id} onClick={() => this.setCurrentPlayerTrack(track.track)}>
             <img src={track.track.album.images[1].url} alt="" />
             <p>{track.track.album.name}</p>
             <p>{track.track.album.artists[0].name}</p>
@@ -36,7 +45,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    // fetchUserAlbums: (token) => dispatch(actionTypes.fetchUserAlbums(token))
+    setPlayerTrack: (track) => dispatch(actionTypes.setPlayerTrack(track)),
+    setAlbumImage: (imageUrl) => dispatch(actionTypes.setAlbumImage(imageUrl)),
   }
 }
 

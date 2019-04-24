@@ -11,6 +11,15 @@ class SongsView extends Component {
     }
   }
 
+  setCurrentPlayerTrack = (track) => {
+    // Set album image on footer
+    if (track.album) {
+      this.props.setAlbumImage(track.album.images[2].url)
+    }
+    // Set track on footer
+    this.props.setPlayerTrack(track)
+  }
+
   render() {
 
     const { tracks } = this.props;
@@ -19,8 +28,7 @@ class SongsView extends Component {
     if (tracks) {
       trackList = tracks.map((track) => {
         return (
-          <div key={track.track.id}>
-            {/* <img src={track.images[0].url} alt="" /> */}
+          <div key={track.track.id} onClick={() => this.setCurrentPlayerTrack(track.track)}>
             <p>{track.track.album.name}</p>
             <p>{track.track.name}</p>
           </div>
@@ -45,7 +53,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchUserTracks: (token) => dispatch(actionTypes.fetchUserTracks(token))
+    fetchUserTracks: (token) => dispatch(actionTypes.fetchUserTracks(token)),
+    setPlayerTrack: (track) => dispatch(actionTypes.setPlayerTrack(track)),
+    setAlbumImage: (imageUrl) => dispatch(actionTypes.setAlbumImage(imageUrl)),
   }
 }
 

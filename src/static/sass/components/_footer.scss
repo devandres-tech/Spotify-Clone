@@ -1,11 +1,25 @@
 .container__footer {
   color: $color-white;
-  padding-bottom: 3.5rem;
+  height: 5.5rem;
   background-color: $color-dark-light;
 
   &--album-view {
     display: flex;
+    padding-left: 1rem;
+    padding-top: 1rem;
+
+    & .album-description {
+      // display: flex;
+      align-self: center;
+      padding-left: 1rem;
+      font-size: .9rem;
+
+      &>p {
+        padding-bottom: .5rem;
+      }
+    }
   }
+
 
   &>img {
     padding-left: 1rem;
