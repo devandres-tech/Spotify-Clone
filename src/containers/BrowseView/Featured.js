@@ -9,6 +9,8 @@ const Featured = (props) => {
   const onAlbumClick = (playlistId) => {
     // fetch tracks for a selected playlist and update browse view
     props.fetchPlaylistTracks(props.token, playlistId);
+    // Set the song view to display the song list
+    props.updateSongListView('BrowseViewSongList')
     props.setBrowseView('trackList');
   }
 
@@ -41,6 +43,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchPlaylistTracks: (token, playlistId) => dispatch(actionTypes.fetchPlaylistTracks(token, playlistId)),
+    updateSongListView: (title) => dispatch(actionTypes.updateSongListView(title)),
     setBrowseView: (title) => dispatch(actionTypes.updateBrowseView(title)),
   }
 }

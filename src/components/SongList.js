@@ -56,8 +56,6 @@ const SongList = (props) => {
       }
     } else {
       // return tracks for a album
-      // albumName = props.trackList.name;
-      // albumDescription = props.trackList.description;
       trackListArray = props.trackList.map((track, idx) => {
         return (
           <li key={idx} onClick={() => setCurrentPlayerTrack(track)}>

@@ -1,7 +1,7 @@
 .container__main-view--topHeader {
   background-color: #181818;
   color: #fff;
-  padding-top: .5rem;
+  padding-top: .7rem;
   padding-bottom: 1rem;
 
   display: flex;
@@ -9,6 +9,8 @@
   width: inherit;
 
   &>input {
+    margin-left: 1.5rem;
+    padding-left: .5rem;
     border-radius: 5rem;
     border-style: none;
     height: 1.4rem;

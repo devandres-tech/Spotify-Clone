@@ -1,9 +1,13 @@
 .container__footer {
   color: $color-white;
-  height: 5.5rem;
+  // padding-top: 2rem;
+  height: 5.4rem;
   background-color: $color-dark-light;
+  display: flex;
+
 
   &--album-view {
+    // margin: 200px;
     display: flex;
     padding-left: 1rem;
     padding-top: 1rem;
@@ -18,11 +22,28 @@
         padding-bottom: .5rem;
       }
     }
+
+    &>img {
+      padding-bottom: .5rem;
+    }
   }
 
 
-  &>img {
-    padding-left: 1rem;
-    padding-top: 1rem;
+  & .player-container {
+    display: inline-block;
+
+    & .progress-bar-container {
+      display: flex;
+
+      & .progress-bar {
+        height: 4px;
+        width: 300px;
+        margin-left: 1rem;
+        margin-right: 1rem;
+        border-radius: 4px;
+        background-color: $color-white;
+      }
+    }
   }
+
 }

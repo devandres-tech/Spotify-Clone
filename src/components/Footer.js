@@ -18,6 +18,18 @@ const Footer = (props) => {
           <p>{albumArtist}</p>
         </div>
       </div>
+      <div className="player-container">
+        <div className="player-controls">
+          <i className="fas fa-step-backward"></i>
+          <i className="far fa-play-circle"></i>
+          <i className="fas fa-step-forward"></i>
+        </div>
+        <div className="progress-bar-container">
+          <p className="current-time">0:00</p>
+          <div className="progress-bar"></div>
+          <p className="time-end">3:20</p>
+        </div>
+      </div>
     </div>
   )
 
