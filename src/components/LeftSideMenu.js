@@ -10,7 +10,7 @@ const LeftSideMenu = (props) => {
   const getPlaylistTracks = (playlistId) => {
     if (props.token) {
       props.fetchPlaylistTracks(props.token, playlistId);
-      props.updateSongListView('PlaylistTracks')
+      props.updateSongListView('UserPlaylistTracks')
       props.updateTitle('PlaylistTracks')
     }
   }

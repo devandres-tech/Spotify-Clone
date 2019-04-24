@@ -7,6 +7,7 @@ const SongList = (props) => {
   let playListName;
   let playListDescription;
   let trackList;
+
   let trackListArray;
   let trackListArtistArray;
 
@@ -23,22 +24,40 @@ const SongList = (props) => {
   if (props.trackList) {
     // return tracks for a playlist
     if (props.trackList.tracks) {
-      trackList = props.trackList.tracks.items || props.trackList.tracks;
-      playListName = props.trackList.name;
-      playListDescription = props.trackList.description;
-
-      trackListArray = trackList.map((track, idx) => {
-        if (track.track) {
-          return (
-            <li key={track.track.id + idx} onClick={() => setCurrentPlayerTrack(track.track)}>
-              <p>{track.track.name}</p>
-            </li>
-          )
-        }
-      })
-
+      // set the track list for the browse view
+      if (props.songView === 'BrowseViewSongList') {
+        console.log('in browse view ', props.trackList);
+        trackList = props.trackList.tracks.items
+        playListName = props.trackList.name;
+        playListDescription = props.trackList.description;
+        trackListArray = trackList.map((track, idx) => {
+          if (track.track) {
+            return (
+              <li key={track.track.id + idx} onClick={() => setCurrentPlayerTrack(track.track)}>
+                <p>{track.track.name}</p>
+              </li>
+            )
+          }
+        })
+        // set the track list for the user playlist view
+      } else if (props.songView === 'UserPlaylistTracks') {
+        trackList = props.trackList.tracks.items
+        playListName = props.trackList.name;
+        playListDescription = props.trackList.description;
+        trackListArray = trackList.map((track, idx) => {
+          if (track.track) {
+            return (
+              <li key={track.track.id + idx} onClick={() => setCurrentPlayerTrack(track.track)}>
+                <p>{track.track.name}</p>
+              </li>
+            )
+          }
+        })
+      }
     } else {
       // return tracks for a album
+      // albumName = props.trackList.name;
+      // albumDescription = props.trackList.description;
       trackListArray = props.trackList.map((track, idx) => {
         return (
           <li key={idx} onClick={() => setCurrentPlayerTrack(track)}>
@@ -88,7 +107,8 @@ const mapStateToProps = (state) => {
     songView: state.mainViewReducer.songView,
     trackList: state.playlistReducer.data,
     artistTrackList: state.playlistReducer.artistTracks,
-    playlistTracks: state.playlistReducer.playlistTracks
+    playlistTracks: state.playlistReducer.playlistTracks,
+    title: state.mainViewReducer.title,
   }
 }
 

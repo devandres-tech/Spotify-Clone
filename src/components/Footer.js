@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 const Footer = (props) => {
   let albumTrack;
   let albumArtist;
-  if (props.albumTrack || props.albumImage) {
+  if (props.albumTrack && props.albumImage) {
     albumTrack = props.albumTrack.name;
     albumArtist = props.albumTrack.artists[0].name;
   }

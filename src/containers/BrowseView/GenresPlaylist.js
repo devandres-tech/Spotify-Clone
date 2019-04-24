@@ -7,7 +7,8 @@ const CategoryPlaylist = (props) => {
 
   const fetchCategoryPlaylistTracks = (playlistId) => {
     props.fetchPlaylistTracks(props.token, playlistId);
-    props.setBrowseView('trackList')
+    props.updateSongListView('BrowseViewSongList');
+    props.setBrowseView('trackList');
   }
 
   let albums;
@@ -33,6 +34,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     fetchPlaylistTracks: (token, playlistId) => dispatch(actionTypes.fetchPlaylistTracks(token, playlistId)),
     setBrowseView: (title) => dispatch(actionTypes.updateBrowseView(title)),
+    updateSongListView: (title) => dispatch(actionTypes.updateSongListView(title)),
   }
 }
 
