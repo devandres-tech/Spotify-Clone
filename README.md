@@ -1,3 +1,5 @@
 # React Spofity Clone
 
-This is a front end clone of the spotify application created with React
+IN PROGRESS...
+This is a front end clone of the spotify application. 
+Tools used: Sass (grid, flexbox), redux, react, axios.
