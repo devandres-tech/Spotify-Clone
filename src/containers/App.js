@@ -10,6 +10,10 @@ import TopHeader from '../components/Header';
 
 
 class App extends Component {
+  state = {
+    audioElement: null
+  }
+  static audioEl;
 
   /* When component mounts request authorization */
   componentDidMount() {
@@ -26,12 +30,20 @@ class App extends Component {
     }
   }
 
+  playTrack = () => {
+    this.audioEl.play();
+  }
+
 
   audioControls = (songUrl) => {
-    const audio = new Audio(songUrl);
-    console.log('adis is', audio);
-    // console.log('sons is ', songUrl)
-    // console.log('stats i s');
+    if (!this.audioEl) {
+      this.audioEl = new Audio(songUrl);
+      this.playTrack();
+    } else {
+      this.audioEl.pause();
+      this.audioEl = new Audio(songUrl);
+      this.playTrack();
+    }
   }
 
 
@@ -56,7 +68,9 @@ class App extends Component {
         <LeftSideMenu />
         <div className="container__main-view">
           <TopHeader />
-          <MainView audioControls={this.audioControls} />
+          <MainView
+            playTrack={this.playTrack}
+            audioControls={this.audioControls} />
         </div>
         <Footer />
       </div>
