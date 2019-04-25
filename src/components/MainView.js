@@ -27,7 +27,7 @@ class MainView extends Component {
     }
     switch (this.props.title) {
       case 'Browse':
-        return <BrowseView />
+        return <BrowseView audioControls={this.props.audioControls} />
       case 'Songs':
         return <SongsView />
       case 'Recently Played':
@@ -37,13 +37,14 @@ class MainView extends Component {
       case 'Albums':
         return <Albums />
       case 'PlaylistTracks':
-        return <SongList />
+        return <SongList audioControls={this.props.audioControls} />
       // set default view to to browse view
       default:
         return <SongsView />
     }
   }
   render() {
+    // console.log('props is', this.props.audioControls);
     return (
       <div className="container__main-view--content">
         {this.renderMainViewSwitch()}

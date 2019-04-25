@@ -25,3 +25,6 @@ export const FETCH_USER_PROFILE = 'FETCH_USER_PROFILE';
 export const SET_PLAYER_TRACK = 'SET_PLAYER_TRACK';
 export const SET_ALBUM_IMAGE = 'SET_ALBUM_IMAGE';
 
+export const PLAY_TRACK = 'PLAY_TRACK';
+export const PAUSE_TRACK = 'PAUSE_TRACK';
+

@@ -45,7 +45,7 @@ class BrowseView extends Component {
           browseTitle === 'genres' ? <GenresView /> :
             browseTitle === 'newReleases' ? <NewReleasesView /> :
               browseTitle === 'featured' ? <Featured /> :
-                browseTitle === 'trackList' ? <SongList /> :
+                browseTitle === 'trackList' ? <SongList audioControls={this.props.audioControls} /> :
                   browseTitle === 'categoryPlaylist' ? <GenresPlaylist /> : <GenresView />
         }
       </>

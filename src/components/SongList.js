@@ -10,14 +10,15 @@ const SongList = (props) => {
 
   let trackListArray;
   let trackListArtistArray;
-
   const setCurrentPlayerTrack = (track) => {
+
     // Set album image on footer
     if (track.album) {
       props.setAlbumImage(track.album.images[2].url)
     }
     // Set track on footer
     props.setPlayerTrack(track)
+    props.audioControls(track.preview_url);
   }
 
   // Get tracks for a playlist or album
@@ -26,7 +27,6 @@ const SongList = (props) => {
     if (props.trackList.tracks) {
       // set the track list for the browse view
       if (props.songView === 'BrowseViewSongList') {
-        console.log('in browse view ', props.trackList);
         trackList = props.trackList.tracks.items
         playListName = props.trackList.name;
         playListDescription = props.trackList.description;

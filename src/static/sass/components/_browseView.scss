@@ -1,6 +1,7 @@
 .browse-container {
   display: grid;
   padding-left: 1.8rem;
+  padding-right: 10rem;
   grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
   font-family: 'Mukta',
     sans-serif;

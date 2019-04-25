@@ -11,7 +11,6 @@ import TopHeader from '../components/Header';
 
 class App extends Component {
 
-
   /* When component mounts request authorization */
   componentDidMount() {
     const clientId = '40fee03a615b470c8c8f73a02a634dcc';
@@ -27,10 +26,14 @@ class App extends Component {
     }
   }
 
+
   audioControls = (songUrl) => {
     const audio = new Audio(songUrl);
-    audio.play();
+    console.log('adis is', audio);
+    // console.log('sons is ', songUrl)
+    // console.log('stats i s');
   }
+
 
   render() {
     // Fetch users playlists to render the playlists names
@@ -53,7 +56,7 @@ class App extends Component {
         <LeftSideMenu />
         <div className="container__main-view">
           <TopHeader />
-          <MainView />
+          <MainView audioControls={this.audioControls} />
         </div>
         <Footer />
       </div>

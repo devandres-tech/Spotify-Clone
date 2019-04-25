@@ -13,3 +13,10 @@ export const setAlbumImage = (albumUrl) => {
     albumUrl
   }
 }
+
+export const playTrack = (songUrl) => {
+  return {
+    type: actionTypes.PLAY_TRACK,
+    songUrl
+  }
+}
