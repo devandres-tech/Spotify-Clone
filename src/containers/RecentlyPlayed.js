@@ -15,6 +15,7 @@ class RecentlyPlayed extends Component {
       this.props.setAlbumImage(track.album.images[2].url)
     }
     // Set track on footer
+    this.props.audioControls(track.preview_url);
     this.props.setPlayerTrack(track)
   }
 

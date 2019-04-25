@@ -8,6 +8,7 @@ class Artists extends Component {
   onArtistClick = (artistId) => {
     if (this.props.token) {
       this.props.fetchArtistTracks(this.props.token, artistId);
+      // update views to render the chosen content
       this.props.updateTitle('PlaylistTracks');
       this.props.updateSongListView('ArtistTracks');
     }

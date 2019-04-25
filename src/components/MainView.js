@@ -32,16 +32,16 @@ class MainView extends Component {
       case 'Songs':
         return <SongsView />
       case 'Recently Played':
-        return <RecentlyPlayed />
+        return <RecentlyPlayed audioControls={this.props.audioControls} />
       case 'Artists':
         return <Artists />
       case 'Albums':
-        return <Albums />
+        return <Albums audioControls={this.props.audioControls} />
       case 'PlaylistTracks':
         return <SongList audioControls={this.props.audioControls} />
       // set default view to to browse view
       default:
-        return <SongsView />
+        return <SongsView audioControls={this.props.audioControls} />
     }
   }
   render() {

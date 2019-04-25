@@ -8,10 +8,12 @@ class Albums extends Component {
   setCurrentPlayerTrack = (track) => {
     // Set album image on footer
     if (track.album) {
-      this.props.setAlbumImage(track.album.images[2].url)
+      this.props.setAlbumImage(track.album.images[2].url);
     }
     // Set track on footer
-    this.props.setPlayerTrack(track)
+    this.props.setPlayerTrack(track);
+    // play track
+    this.props.audioControls(track.preview_url);
   }
 
   render() {

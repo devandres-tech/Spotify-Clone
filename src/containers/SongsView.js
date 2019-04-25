@@ -18,6 +18,8 @@ class SongsView extends Component {
     }
     // Set track on footer
     this.props.setPlayerTrack(track)
+    // play track 
+    this.props.audioControls(track.preview_url)
   }
 
   render() {
