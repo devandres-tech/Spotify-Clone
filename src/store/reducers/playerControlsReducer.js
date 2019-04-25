@@ -14,6 +14,12 @@ export const playerControlsReducer = (state = {}, action) => {
         imageUrl: action.albumUrl
       }
 
+    case actionTypes.PLAY_TRACK:
+      return {
+        ...state,
+        trackIsPlaying: action.trackIsPlaying
+      }
+
     default:
       return state;
   }

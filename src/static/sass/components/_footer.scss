@@ -53,6 +53,18 @@
         }
       }
 
+      &>.fa-pause-circle {
+        font-size: 2.2rem;
+        -webkit-text-stroke: 2px rgb(46, 45, 45);
+
+        &:hover {
+          cursor: pointer;
+          transform: scale(1.05);
+          transition: all .2s;
+          color: #fff;
+        }
+      }
+
       &>.fa-step-backward {
         &:hover {
           cursor: pointer;

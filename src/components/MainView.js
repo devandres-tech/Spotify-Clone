@@ -27,7 +27,8 @@ class MainView extends Component {
     }
     switch (this.props.title) {
       case 'Browse':
-        return <BrowseView audioControls={this.props.audioControls} />
+        return <BrowseView
+          audioControls={this.props.audioControls} />
       case 'Songs':
         return <SongsView />
       case 'Recently Played':

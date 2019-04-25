@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import * as actionTypes from '../store/actions'
+
 const Footer = (props) => {
   let albumTrack;
   let albumArtist;
@@ -21,7 +23,15 @@ const Footer = (props) => {
       <div className="player-container">
         <div className="player-controls">
           <i className="fas fa-step-backward"></i>
-          <i className="far fa-play-circle"></i>
+          {
+            props.trackIsPlaying ? <i onClick={
+              () => {
+                props.pauseTrack();
+                props.playTrack(false);
+              }
+            } className="far fa-pause-circle"></i>
+              : <i className="far fa-play-circle" onClick={() => props.playTrack(true)}></i>
+          }
           <i className="fas fa-step-forward"></i>
         </div>
         <div className="progress-bar-container">
@@ -30,16 +40,24 @@ const Footer = (props) => {
           <p className="time-end">3:20</p>
         </div>
       </div>
-    </div>
+    </div >
   )
 
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    playTrack: (trackIsPlaying) => dispatch(actionTypes.playTrack(trackIsPlaying))
+  }
 }
 
 const mapStateToProps = (state) => {
   return {
     albumTrack: state.playerControlsReducer.track,
-    albumImage: state.playerControlsReducer.imageUrl
+    albumImage: state.playerControlsReducer.imageUrl,
+    trackIsPlaying: state.playerControlsReducer.trackIsPlaying
   }
 }
 
-export default connect(mapStateToProps)(Footer);
+
+export default connect(mapStateToProps, mapDispatchToProps)(Footer);

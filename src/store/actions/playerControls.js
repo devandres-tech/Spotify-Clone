@@ -14,9 +14,9 @@ export const setAlbumImage = (albumUrl) => {
   }
 }
 
-export const playTrack = (songUrl) => {
+export const playTrack = (trackIsPlaying) => {
   return {
     type: actionTypes.PLAY_TRACK,
-    songUrl
+    trackIsPlaying
   }
 }

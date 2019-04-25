@@ -10,10 +10,8 @@ import TopHeader from '../components/Header';
 
 
 class App extends Component {
-  state = {
-    audioElement: null
-  }
-  static audioEl;
+
+  static audioTrack;
 
   /* When component mounts request authorization */
   componentDidMount() {
@@ -31,17 +29,22 @@ class App extends Component {
   }
 
   playTrack = () => {
-    this.audioEl.play();
+    this.audioTrack.play();
+    this.props.playTrack(true);
+  }
+
+  pauseTrack = () => {
+    this.audioTrack.pause();
   }
 
 
   audioControls = (songUrl) => {
-    if (!this.audioEl) {
-      this.audioEl = new Audio(songUrl);
+    if (!this.audioTrack) {
+      this.audioTrack = new Audio(songUrl);
       this.playTrack();
     } else {
-      this.audioEl.pause();
-      this.audioEl = new Audio(songUrl);
+      this.audioTrack.pause();
+      this.audioTrack = new Audio(songUrl);
       this.playTrack();
     }
   }
@@ -72,7 +75,7 @@ class App extends Component {
             playTrack={this.playTrack}
             audioControls={this.audioControls} />
         </div>
-        <Footer />
+        <Footer pauseTrack={this.pauseTrack} />
       </div>
     );
   }
@@ -95,7 +98,8 @@ const mapDispatchToProps = (dispatch) => {
     setToken: (token) => dispatch(actionTypes.setToken(token)),
     fetchUserPlaylists: (token) => dispatch(actionTypes.fetchUserPlaylists(token)),
     fetchUserProfile: (token) => dispatch(actionTypes.fetchUserProfile(token)),
-    fetchArtists: (token, artistId) => dispatch(actionTypes.fetchArtists(token, artistId))
+    fetchArtists: (token, artistId) => dispatch(actionTypes.fetchArtists(token, artistId)),
+    playTrack: (trackIsPlaying) => dispatch(actionTypes.playTrack(trackIsPlaying))
   }
 }
 

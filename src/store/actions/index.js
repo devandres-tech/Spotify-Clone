@@ -31,6 +31,7 @@ export {
 } from './user';
 
 export {
+  playTrack,
   setPlayerTrack,
   setAlbumImage
 } from './playerControls'
