@@ -1,8 +1,10 @@
 .container__main-view--content {
-  height: 84%;
+  height: 85vh;
   overflow-y: scroll;
   color: $color-white;
   background-color: $color-dark;
+  display: flex;
+  flex-direction: column;
 }
 
 .artist-img {

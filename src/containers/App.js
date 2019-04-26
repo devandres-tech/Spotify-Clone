@@ -59,7 +59,6 @@ class App extends Component {
       this.audioTrack = new Audio(songUrl);
       this.audioTrack.ontimeupdate = this.getCurrentTime;
       this.playTrack();
-      console.log('ending is ', this.audioTrack.duration);
     } else {
       // pause current track and create new audio element and play
       this.audioTrack.pause();
