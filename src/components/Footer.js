@@ -44,7 +44,9 @@ const Footer = (props) => {
           <p className="current-time">{
             props.currentTime ? moment().minutes(0).second(props.currentTime).format('m:ss') : '0:00'
           }</p>
-          <div className="progress-bar"></div>
+          <div className='bar'>
+            <div style={{ width: props.currentTime ? props.currentTime * 10 : 0 }} className="bar-progress"></div>
+          </div>
           <p className="time-end">0:30</p>
         </div>
       </div>

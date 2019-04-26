@@ -92,13 +92,39 @@
     & .progress-bar-container {
       display: flex;
 
-      & .progress-bar {
-        height: 2px;
+      & .current-time,
+      .time-end {
+        min-width: 2rem;
+        transform: translateY(-0.29rem);
+      }
+
+
+      & .bar {
+        height: 5px;
         width: 300px;
+        background-color: $color-gray-dark;
         margin-left: 1rem;
         margin-right: 1rem;
-        border-radius: 4px;
-        background-color: $color-white;
+
+        &:hover {
+          cursor: pointer;
+        }
+
+        &:hover>.bar-progress {
+          background-color: $color-green;
+        }
+
+        & .bar-progress {
+          height: 5px;
+          z-index: 2;
+          border-radius: 4px;
+          background-color: $color-gray;
+
+          &:hover {
+            cursor: pointer;
+            background-color: $color-green;
+          }
+        }
       }
     }
   }
