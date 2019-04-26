@@ -8,11 +8,11 @@ import Footer from '../components/Footer';
 import MainView from '../components/MainView';
 import TopHeader from '../components/Header';
 
-
+let currentTime;
+// TODO: use el.ontimeupdate to get current time playing
 class App extends Component {
 
   static audioTrack;
-
   /* When component mounts request authorization */
   componentDidMount() {
     const clientId = '40fee03a615b470c8c8f73a02a634dcc';
@@ -28,23 +28,43 @@ class App extends Component {
     }
   }
 
+  getCurrentTime = () => {
+    // set current playback time
+    this.props.setCurrentTime(~~this.audioTrack.currentTime)
+  }
+
   playTrack = () => {
     this.audioTrack.play();
     this.props.playTrack(true);
   }
 
   pauseTrack = () => {
-    this.audioTrack.pause();
+    if (this.audioTrack) {
+      this.audioTrack.pause();
+    }
+  }
+
+  resumeTrack = () => {
+    if (this.audioTrack) {
+      // resume currently paused song
+      this.audioTrack.play();
+    }
   }
 
 
+
   audioControls = (songUrl) => {
+    // If audio element is not defined create a new one
     if (!this.audioTrack) {
       this.audioTrack = new Audio(songUrl);
+      this.audioTrack.ontimeupdate = this.getCurrentTime;
       this.playTrack();
+      console.log('ending is ', this.audioTrack.duration);
     } else {
+      // pause current track and create new audio element and play
       this.audioTrack.pause();
       this.audioTrack = new Audio(songUrl);
+      this.audioTrack.ontimeupdate = this.getCurrentTime;
       this.playTrack();
     }
   }
@@ -75,7 +95,9 @@ class App extends Component {
             playTrack={this.playTrack}
             audioControls={this.audioControls} />
         </div>
-        <Footer pauseTrack={this.pauseTrack} />
+        <Footer
+          resumeTrack={this.resumeTrack}
+          pauseTrack={this.pauseTrack} />
       </div>
     );
   }
@@ -99,7 +121,8 @@ const mapDispatchToProps = (dispatch) => {
     fetchUserPlaylists: (token) => dispatch(actionTypes.fetchUserPlaylists(token)),
     fetchUserProfile: (token) => dispatch(actionTypes.fetchUserProfile(token)),
     fetchArtists: (token, artistId) => dispatch(actionTypes.fetchArtists(token, artistId)),
-    playTrack: (trackIsPlaying) => dispatch(actionTypes.playTrack(trackIsPlaying))
+    playTrack: (trackIsPlaying) => dispatch(actionTypes.playTrack(trackIsPlaying)),
+    setCurrentTime: (time) => dispatch(actionTypes.setCurrentTime(time))
   }
 }
 

@@ -27,4 +27,5 @@ export const SET_ALBUM_IMAGE = 'SET_ALBUM_IMAGE';
 
 export const PLAY_TRACK = 'PLAY_TRACK';
 export const PAUSE_TRACK = 'PAUSE_TRACK';
+export const SET_CURRENT_TIME = 'SET_CURRENT_TIME';
 

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import moment from 'moment';
 
 import * as actionTypes from '../store/actions'
 
@@ -30,17 +31,24 @@ const Footer = (props) => {
                 props.playTrack(false);
               }
             } className="far fa-pause-circle"></i>
-              : <i className="far fa-play-circle" onClick={() => props.playTrack(true)}></i>
+              : <i className="far fa-play-circle" onClick={
+                () => {
+                  props.resumeTrack();
+                  props.playTrack(true);
+                }
+              }></i>
           }
           <i className="fas fa-step-forward"></i>
         </div>
         <div className="progress-bar-container">
-          <p className="current-time">0:00</p>
+          <p className="current-time">{
+            props.currentTime ? moment().minutes(0).second(props.currentTime).format('m:ss') : '0:00'
+          }</p>
           <div className="progress-bar"></div>
-          <p className="time-end">3:20</p>
+          <p className="time-end">0:30</p>
         </div>
       </div>
-    </div >
+    </div>
   )
 
 }
@@ -55,7 +63,8 @@ const mapStateToProps = (state) => {
   return {
     albumTrack: state.playerControlsReducer.track,
     albumImage: state.playerControlsReducer.imageUrl,
-    trackIsPlaying: state.playerControlsReducer.trackIsPlaying
+    trackIsPlaying: state.playerControlsReducer.trackIsPlaying,
+    currentTime: state.playerControlsReducer.currentTime
   }
 }
 

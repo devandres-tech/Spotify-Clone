@@ -20,3 +20,10 @@ export const playTrack = (trackIsPlaying) => {
     trackIsPlaying
   }
 }
+
+export const setCurrentTime = (currentTime) => {
+  return {
+    type: actionTypes.SET_CURRENT_TIME,
+    currentTime
+  }
+}

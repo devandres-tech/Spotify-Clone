@@ -20,6 +20,12 @@ export const playerControlsReducer = (state = {}, action) => {
         trackIsPlaying: action.trackIsPlaying
       }
 
+    case actionTypes.SET_CURRENT_TIME:
+      return {
+        ...state,
+        currentTime: action.currentTime
+      }
+
     default:
       return state;
   }
