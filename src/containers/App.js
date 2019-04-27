@@ -33,7 +33,7 @@ class App extends Component {
 
   componentDidUpdate(prevProps, nextProps) {
     // Set the volume in our audio element when our volume props updates
-    if (prevProps.volume) {
+    if (prevProps.volume && this.audioTrack) {
       this.audioTrack.volume = prevProps.volume / 100;
     }
   }
@@ -45,9 +45,6 @@ class App extends Component {
 
   playTrack = () => {
     this.audioTrack.play();
-    // get current volume from state reducer
-    console.log("volume is ", this.props.volume)
-    // this.audioTrack.volume = this.props.volume;
     this.props.playTrack(true);
   }
 

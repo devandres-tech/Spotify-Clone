@@ -32,6 +32,18 @@ export const playerControlsReducer = (state = {}, action) => {
         volume: action.volume
       }
 
+    case actionTypes.SET_CURRENT_TRACK_INDEX:
+      return {
+        ...state,
+        trackIndex: action.trackIdx
+      }
+
+    case actionTypes.UPDATE_TRACK_INDEX:
+      return {
+        ...state,
+        trackIndex: action.trackIdx
+      }
+
     default:
       return state;
   }

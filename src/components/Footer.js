@@ -21,6 +21,7 @@ class Footer extends Component {
     this.props.setVolume(this.volumeInput.value)
   }
 
+  // Sets the volume bar
   rangeColor = (input) => {
     var wrp = document.createElement('div'),
       preBar = document.createElement('p'),
@@ -83,7 +84,8 @@ class Footer extends Component {
                   }
                 }></i>
             }
-            <i className="fas fa-step-forward"></i>
+            <i className="fas fa-step-forward" onClick={() => this.props.updateTrackIndex()}>
+            </i>
           </div>
           <div className="progress-bar-container">
             <p className="current-time">{
@@ -113,7 +115,8 @@ class Footer extends Component {
 const mapDispatchToProps = (dispatch) => {
   return {
     playTrack: (trackIsPlaying) => dispatch(actionTypes.playTrack(trackIsPlaying)),
-    setVolume: (volume) => dispatch(actionTypes.setVolume(volume))
+    setVolume: (volume) => dispatch(actionTypes.setVolume(volume)),
+    updateTrackIndex: () => dispatch(actionTypes.updateTrackIndex())
   }
 }
 
@@ -122,7 +125,8 @@ const mapStateToProps = (state) => {
     albumTrack: state.playerControlsReducer.track,
     albumImage: state.playerControlsReducer.imageUrl,
     trackIsPlaying: state.playerControlsReducer.trackIsPlaying,
-    currentTime: state.playerControlsReducer.currentTime
+    currentTime: state.playerControlsReducer.currentTime,
+    trackList: state.playlistReducer.data,
   }
 }
 
