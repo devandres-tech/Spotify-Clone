@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import BrowseView from '../containers/BrowseView/BrowseView';
-import SongsView from '../containers/SongsView';
+import FavoriteSongs from '../containers/FavoriteSongs';
 import RecentlyPlayed from '../containers/RecentlyPlayed';
 import * as actionTypes from '../store/actions';
 import Artists from '../containers/Artists';
@@ -30,7 +30,7 @@ class MainView extends Component {
         return <BrowseView
           audioControls={this.props.audioControls} />
       case 'Songs':
-        return <SongsView />
+        return <FavoriteSongs />
       case 'Recently Played':
         return <RecentlyPlayed audioControls={this.props.audioControls} />
       case 'Artists':
@@ -41,7 +41,7 @@ class MainView extends Component {
         return <SongList audioControls={this.props.audioControls} />
       // set default view to to browse view
       default:
-        return <SongsView audioControls={this.props.audioControls} />
+        return <FavoriteSongs audioControls={this.props.audioControls} />
     }
   }
   render() {

@@ -44,6 +44,12 @@ export const playerControlsReducer = (state = {}, action) => {
         trackIndex: action.trackIdx
       }
 
+    case actionTypes.UPDATE_TRACK_INDEX_BACKWARDS:
+      return {
+        ...state,
+        trackIndex: action.trackIdx
+      }
+
     default:
       return state;
   }

@@ -69,7 +69,8 @@ class Footer extends Component {
         </div>
         <div className="player-container">
           <div className="player-controls">
-            <i className="fas fa-step-backward"></i>
+            <i className="fas fa-step-backward" onClick={() => this.props.updateTrackIndexBackwards()}>
+            </i>
             {
               this.props.trackIsPlaying ? <i onClick={
                 () => {
@@ -116,7 +117,8 @@ const mapDispatchToProps = (dispatch) => {
   return {
     playTrack: (trackIsPlaying) => dispatch(actionTypes.playTrack(trackIsPlaying)),
     setVolume: (volume) => dispatch(actionTypes.setVolume(volume)),
-    updateTrackIndex: () => dispatch(actionTypes.updateTrackIndex())
+    updateTrackIndex: () => dispatch(actionTypes.updateTrackIndex()),
+    updateTrackIndexBackwards: () => dispatch(actionTypes.updateTrackIndexBackwards())
   }
 }
 

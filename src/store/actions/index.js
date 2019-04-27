@@ -37,5 +37,6 @@ export {
   setCurrentTime,
   setVolume,
   setCurrentTrackIndex,
-  updateTrackIndex
+  updateTrackIndex,
+  updateTrackIndexBackwards
 } from './playerControls'

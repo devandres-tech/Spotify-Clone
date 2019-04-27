@@ -52,3 +52,11 @@ export const updateTrackIndex = () => {
     trackIdx
   }
 }
+
+export const updateTrackIndexBackwards = () => {
+  --trackIdx
+  return {
+    type: actionTypes.UPDATE_TRACK_INDEX,
+    trackIdx
+  }
+}

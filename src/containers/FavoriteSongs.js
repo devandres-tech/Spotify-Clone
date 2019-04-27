@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import * as actionTypes from '../store/actions'
 
-class SongsView extends Component {
+class FavoriteSongs extends Component {
 
   componentDidUpdate(prevProps) {
     if (this.props.token !== prevProps.token) {
@@ -77,4 +77,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SongsView);
+export default connect(mapStateToProps, mapDispatchToProps)(FavoriteSongs);
