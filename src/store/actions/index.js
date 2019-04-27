@@ -34,5 +34,6 @@ export {
   playTrack,
   setPlayerTrack,
   setAlbumImage,
-  setCurrentTime
+  setCurrentTime,
+  setVolume
 } from './playerControls'

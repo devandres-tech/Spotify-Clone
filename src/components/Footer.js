@@ -8,12 +8,17 @@ import * as actionTypes from '../store/actions'
 class Footer extends Component {
   constructor(props) {
     super(props);
-    this.myInput = React.createRef();
+    this.volumeInput = React.createRef();
   }
 
   componentDidMount() {
-    // const input = this.myInput.current;
-    this.rangeColor(this.myInput);
+    // const input = this.volumeInput.current;
+    this.rangeColor(this.volumeInput);
+  }
+
+  getValue = () => {
+    // dispatch action to set volume
+    this.props.setVolume(this.volumeInput.value)
   }
 
   rangeColor = (input) => {
@@ -94,9 +99,8 @@ class Footer extends Component {
           <VolumeIcon className="volume-icon" fill="#fff" />
           <input
             type="range"
-            step={1}
-            // value={50}
-            ref={input => { this.myInput = input }}
+            onChange={() => this.getValue()}
+            ref={input => { this.volumeInput = input }}
             min={0}
             max={100} />
         </div>
@@ -108,7 +112,8 @@ class Footer extends Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    playTrack: (trackIsPlaying) => dispatch(actionTypes.playTrack(trackIsPlaying))
+    playTrack: (trackIsPlaying) => dispatch(actionTypes.playTrack(trackIsPlaying)),
+    setVolume: (volume) => dispatch(actionTypes.setVolume(volume))
   }
 }
 

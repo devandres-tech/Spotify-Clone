@@ -27,3 +27,10 @@ export const setCurrentTime = (currentTime) => {
     currentTime
   }
 }
+
+export const setVolume = (volume) => {
+  return {
+    type: actionTypes.SET_VOLUME,
+    volume
+  }
+}

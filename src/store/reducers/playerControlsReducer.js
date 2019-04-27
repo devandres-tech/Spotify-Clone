@@ -26,6 +26,12 @@ export const playerControlsReducer = (state = {}, action) => {
         currentTime: action.currentTime
       }
 
+    case actionTypes.SET_VOLUME:
+      return {
+        ...state,
+        volume: action.volume
+      }
+
     default:
       return state;
   }

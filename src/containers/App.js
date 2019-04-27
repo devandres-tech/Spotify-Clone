@@ -8,8 +8,6 @@ import Footer from '../components/Footer';
 import MainView from '../components/MainView';
 import TopHeader from '../components/Header';
 
-let currentTime;
-// TODO: use el.ontimeupdate to get current time playing
 class App extends Component {
 
   static audioTrack;
@@ -23,18 +21,33 @@ class App extends Component {
     if (window.location.hash.length === 0) {
       window.location.href = `https://accounts.spotify.com/authorize?client_id=${clientId}&scope=${scopes}&response_type=token&redirect_uri=${URI}`
     } else {
+      // grab the token from url and set it in our redux store state 
+      // to use through out our entire application
       accessToken = window.location.hash.split('=')[1].split('&')[0];
       this.props.setToken(accessToken);
+      // console.log('token is ', accessToken);
+      this.props.fetchUserPlaylists(accessToken);
+      this.props.fetchUserProfile(accessToken);
+    }
+  }
+
+  componentDidUpdate(prevProps, nextProps) {
+    // Set the volume in our audio element when our volume props updates
+    if (prevProps.volume) {
+      this.audioTrack.volume = prevProps.volume / 100;
     }
   }
 
   getCurrentTime = () => {
     // set current playback time
-    this.props.setCurrentTime(~~this.audioTrack.currentTime)
+    this.props.setCurrentTime(~~this.audioTrack.currentTime);
   }
 
   playTrack = () => {
     this.audioTrack.play();
+    // get current volume from state reducer
+    console.log("volume is ", this.props.volume)
+    // this.audioTrack.volume = this.props.volume;
     this.props.playTrack(true);
   }
 
@@ -50,9 +63,10 @@ class App extends Component {
       this.audioTrack.play();
     }
   }
-
-
-
+  /** 
+   * Only play tracks when a new mp3 url is passed in 
+   * @param {String} songUrl - the preview track url
+   */
   audioControls = (songUrl) => {
     // If audio element is not defined create a new one
     if (!this.audioTrack) {
@@ -60,7 +74,7 @@ class App extends Component {
       this.audioTrack.ontimeupdate = this.getCurrentTime;
       this.playTrack();
     } else {
-      // pause current track and create new audio element and play
+      // pause current track and create new audio element and play the new one
       this.audioTrack.pause();
       this.audioTrack = new Audio(songUrl);
       this.audioTrack.ontimeupdate = this.getCurrentTime;
@@ -68,23 +82,7 @@ class App extends Component {
     }
   }
 
-
   render() {
-    // Fetch users playlists to render the playlists names
-    // in the left side menu
-    if (this.props.token) {
-      // Get the ID's for each artist
-      if (this.props.tracks) {
-        const artistIds = this.props.tracks.map((track) => {
-          return track.track.artists[0].id;
-        })
-        // Get several artists
-        this.props.fetchArtists(this.props.token, artistIds.toString());
-      }
-      this.props.fetchUserPlaylists(this.props.token);
-      this.props.fetchUserProfile(this.props.token);
-    }
-
     return (
       <div className="container">
         <LeftSideMenu />
@@ -110,7 +108,7 @@ App.propTypes = {
 const mapStateToProps = (state) => {
   return {
     token: state.tokenReducer.token,
-    tracks: state.userReducer.userTracks
+    volume: state.playerControlsReducer.volume
   }
 }
 
@@ -119,7 +117,6 @@ const mapDispatchToProps = (dispatch) => {
     setToken: (token) => dispatch(actionTypes.setToken(token)),
     fetchUserPlaylists: (token) => dispatch(actionTypes.fetchUserPlaylists(token)),
     fetchUserProfile: (token) => dispatch(actionTypes.fetchUserProfile(token)),
-    fetchArtists: (token, artistId) => dispatch(actionTypes.fetchArtists(token, artistId)),
     playTrack: (trackIsPlaying) => dispatch(actionTypes.playTrack(trackIsPlaying)),
     setCurrentTime: (time) => dispatch(actionTypes.setCurrentTime(time))
   }
