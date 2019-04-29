@@ -13,11 +13,9 @@ class FavoriteSongs extends Component {
 
   shouldComponentUpdate(nextProps, nextState, nextContext) {
     if (nextProps.tracks && nextProps.trackIndex) {
-      console.log(nextProps.trackIndex)
       let nextTrack = nextProps.tracks.find((track, i) => {
         if (i === nextProps.trackIndex) return track;
       })
-      console.log('nex trak is ', nextTrack);
       this.props.audioControls(nextTrack.track.preview_url);
       this.props.setPlayerTrack(nextTrack.track)
       this.props.setAlbumImage(nextTrack.track.album.images[2].url)
@@ -43,19 +41,37 @@ class FavoriteSongs extends Component {
 
     if (tracks) {
       trackList = tracks.map((track, idx) => {
+        console.log('artist is', track);
         return (
-          <div key={track.track.id} onClick={() => { this.props.setCurrentTrackIndex(idx); this.setCurrentPlayerTrack(track.track) }}>
-            <p>{track.track.album.name}</p>
-            <p>{track.track.name}</p>
+          <div key={track.track.id}
+            className="song-list-title-row"
+            onClick={() => {
+              this.props.setCurrentTrackIndex(idx);
+              this.setCurrentPlayerTrack(track.track)
+            }}>
+            <p className="song-list-col-5">{track.track.name}</p>
+            <p className="song-list-col-5">{track.track.artists[0].name}</p>
+            <p className="song-list-col-5">{track.track.album.name}</p>
+            <p className="song-list-col-5">{track.added_at}</p>
+            <p className="song-list-col-5">{track.track.duration_ms}</p>
           </div>
         )
       })
     }
 
     return (
-      <div className="song-list">
-        {trackList}
-      </div>
+      <>
+        <div className="song-list-title-row">
+          <div className="song-list-col-5">title</div>
+          <div className="song-list-col-5">artist</div>
+          <div className="song-list-col-5">album</div>
+          <div className="song-list-col-5">date</div>
+          <div className="song-list-col-5">duration</div>
+        </div>
+        <div className="song-list">
+          {trackList}
+        </div>
+      </>
     )
   }
 }

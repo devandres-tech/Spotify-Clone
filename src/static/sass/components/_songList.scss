@@ -1,5 +1,20 @@
-.song-list {
+.song-list-title-row {
   font-family: 'Mukta',
     sans-serif;
   font-weight: 300;
+  display: flex;
+  border-bottom: .005rem solid rgb(54, 54, 54);
+  padding-top: .6rem;
+  padding-bottom: .6rem;
+
+  &:hover {
+    background-color: rgb(41, 41, 41);
+    cursor: pointer;
+  }
+
+  &>.song-list-col-5 {
+    display: inline-block;
+    width: 100%;
+    padding-right: 2rem;
+  }
 }
