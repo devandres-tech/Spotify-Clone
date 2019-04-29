@@ -11,11 +11,11 @@ let trackListArtistArray;
 class SongList extends Component {
 
   shouldComponentUpdate(nextProps, nextState, nextContext) {
-    if (trackList) {
+    // Set up the track index in redux store
+    if (trackList && nextProps.trackIndex) {
       let nextTrack = trackList.find((track, i) => {
         if (i === nextProps.trackIndex) return track;
       })
-      // console.log('tralist ', nextTrack);
       this.props.audioControls(nextTrack.track.preview_url);
       this.props.setPlayerTrack(nextTrack.track)
       this.props.setAlbumImage(nextTrack.track.album.images[2].url)
@@ -60,6 +60,7 @@ class SongList extends Component {
           playListDescription = this.props.trackList.description;
           trackListArray = trackList.map((track, idx) => {
             if (track.track) {
+              console.log("setting up the index for playlist")
               return (
                 <li key={track.track.id + idx} onClick={() => { this.props.setCurrentTrackIndex(idx); this.setCurrentPlayerTrack(track.track) }}>
                   <p>{track.track.name}</p>

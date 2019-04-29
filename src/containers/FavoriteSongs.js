@@ -41,7 +41,6 @@ class FavoriteSongs extends Component {
 
     if (tracks) {
       trackList = tracks.map((track, idx) => {
-        console.log('artist is', track);
         return (
           <div key={track.track.id}
             className="song-list-title-row"
