@@ -16,9 +16,11 @@ class FavoriteSongs extends Component {
       let nextTrack = nextProps.tracks.find((track, i) => {
         if (i === nextProps.trackIndex) return track;
       })
-      this.props.audioControls(nextTrack.track.preview_url);
-      this.props.setPlayerTrack(nextTrack.track)
-      this.props.setAlbumImage(nextTrack.track.album.images[2].url)
+      if (nextTrack) {
+        this.props.audioControls(nextTrack.track.preview_url);
+        this.props.setPlayerTrack(nextTrack.track)
+        this.props.setAlbumImage(nextTrack.track.album.images[2].url)
+      }
     }
     return true;
   }
