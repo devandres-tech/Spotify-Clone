@@ -10,9 +10,10 @@ let trackListArray;
 let trackListArtistArray;
 class SongList extends Component {
 
+  /** Updates previous and next track when buttons are clicked*/
   shouldComponentUpdate(nextProps, nextState, nextContext) {
     // Set up the track index in redux store
-    if (trackList && nextProps.trackIndex) {
+    if (trackList && nextProps.trackIndex >= 0) {
       let nextTrack = trackList.find((track, i) => {
         if (i === nextProps.trackIndex) return track;
       })
@@ -21,16 +22,29 @@ class SongList extends Component {
       this.props.setAlbumImage(nextTrack.track.album.images[2].url)
 
     }
+    // returns next and previous track for artist playlist
+    if (this.props.artistTrackList && nextProps.trackIndex >= 0 && this.props.songView === 'ArtistTracks') {
+      let nextTrack = this.props.artistTrackList.find((track, i) => {
+        if (i === nextProps.trackIndex) return track;
+      })
+      console.log('nest is ', nextTrack);
+      if (nextTrack.preview_url) {
+        this.props.audioControls(nextTrack.preview_url);
+      }
+      this.props.setPlayerTrack(nextTrack.album)
+      this.props.setAlbumImage(nextTrack.album.images[2].url)
+    }
     return true;
   }
 
+  /** Sets the current track when clicked */
   setCurrentPlayerTrack = (track) => {
     // Set album image on footer
     if (track.album) {
       this.props.setAlbumImage(track.album.images[2].url)
     }
     // Set track on footer
-    this.props.setPlayerTrack(track)
+    this.props.setPlayerTrack(track);
     this.props.audioControls(track.preview_url);
   }
 
@@ -60,7 +74,6 @@ class SongList extends Component {
           playListDescription = this.props.trackList.description;
           trackListArray = trackList.map((track, idx) => {
             if (track.track) {
-              console.log("setting up the index for playlist")
               return (
                 <li key={track.track.id + idx} onClick={() => { this.props.setCurrentTrackIndex(idx); this.setCurrentPlayerTrack(track.track) }}>
                   <p>{track.track.name}</p>

@@ -12,7 +12,7 @@ class FavoriteSongs extends Component {
   }
 
   shouldComponentUpdate(nextProps, nextState, nextContext) {
-    if (nextProps.tracks && nextProps.trackIndex) {
+    if (nextProps.tracks && nextProps.trackIndex >= 0) {
       let nextTrack = nextProps.tracks.find((track, i) => {
         if (i === nextProps.trackIndex) return track;
       })

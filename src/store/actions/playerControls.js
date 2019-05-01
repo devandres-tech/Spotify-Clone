@@ -55,6 +55,10 @@ export const updateTrackIndex = () => {
 
 export const updateTrackIndexBackwards = () => {
   --trackIdx
+  if (trackIdx < 0) {
+    trackIdx = 0;
+  }
+
   return {
     type: actionTypes.UPDATE_TRACK_INDEX,
     trackIdx
