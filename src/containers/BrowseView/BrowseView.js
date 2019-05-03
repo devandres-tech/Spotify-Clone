@@ -30,6 +30,7 @@ class BrowseView extends Component {
   onSetNewReleasesView = () => {
     this.props.setBrowseView('newReleases');
     this.props.fetchNewReleasesPlaylist(this.props.token);
+    this.props.setCurrentTrackIndex();
   }
 
   render() {
@@ -66,7 +67,8 @@ const mapDispatchToProps = (dispatch) => {
     updateSongListView: (title) => dispatch(actionTypes.updateSongListView(title)),
     fetchFeaturedPlaylist: (token) => dispatch(actionTypes.fetchFeaturedPlaylist(token)),
     fetchBrowseCategories: (token) => dispatch(actionTypes.fetchBrowseCategories(token)),
-    fetchNewReleasesPlaylist: (token) => dispatch(actionTypes.fetchNewReleasesPlaylist(token))
+    fetchNewReleasesPlaylist: (token) => dispatch(actionTypes.fetchNewReleasesPlaylist(token)),
+    setCurrentTrackIndex: (trackIndex) => dispatch(actionTypes.setCurrentTrackIndex(trackIndex))
   }
 }
 

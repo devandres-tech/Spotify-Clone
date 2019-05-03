@@ -28,6 +28,7 @@ class Artists extends Component {
   }
 
   onArtistClick = (artistId) => {
+    this.props.setCurrentTrackIndex();
     if (this.props.token) {
       this.props.fetchArtistTracks(this.props.token, artistId);
       // update views to render the chosen content
@@ -59,6 +60,7 @@ const mapDispatchToProps = (dispatch) => {
     fetchArtists: (token, artistId) => dispatch(actionTypes.fetchArtists(token, artistId)),
     updateTitle: (title) => dispatch(actionTypes.updateTitle(title)),
     fetchArtistTracks: (token, artistId) => dispatch(actionTypes.fetchArtistTracks(token, artistId)),
+    setCurrentTrackIndex: (trackIndex) => dispatch(actionTypes.setCurrentTrackIndex(trackIndex)),
   }
 }
 

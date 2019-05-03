@@ -6,6 +6,7 @@ import * as actionTypes from '../../store/actions';
 const CategoryPlaylist = (props) => {
 
   const fetchCategoryPlaylistTracks = (playlistId) => {
+    props.setCurrentTrackIndex();
     props.fetchPlaylistTracks(props.token, playlistId);
     props.updateSongListView('BrowseViewSongList');
     props.setBrowseView('trackList');
@@ -35,6 +36,7 @@ const mapDispatchToProps = (dispatch) => {
     fetchPlaylistTracks: (token, playlistId) => dispatch(actionTypes.fetchPlaylistTracks(token, playlistId)),
     setBrowseView: (title) => dispatch(actionTypes.updateBrowseView(title)),
     updateSongListView: (title) => dispatch(actionTypes.updateSongListView(title)),
+    setCurrentTrackIndex: (trackIndex) => dispatch(actionTypes.setCurrentTrackIndex(trackIndex))
   }
 }
 

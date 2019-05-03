@@ -29,7 +29,6 @@ class SongList extends Component {
       let nextTrack = this.props.artistTrackList.find((track, i) => {
         if (i === nextProps.trackIndex) return track;
       })
-
       if (nextTrack) {
         if (nextTrack.preview_url) {
           this.props.audioControls(nextTrack.preview_url);

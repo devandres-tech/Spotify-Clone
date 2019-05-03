@@ -7,6 +7,7 @@ class RecentlyPlayed extends Component {
 
   componentDidMount() {
     this.props.fetchRecentlyPlayedTracks(this.props.token);
+    this.props.setCurrentTrackIndex();
   }
 
   shouldComponentUpdate(nextProps, nextState, nextContext) {
@@ -75,7 +76,6 @@ const mapDispatchToProps = (dispatch) => {
     fetchAlbumTracks: (token, playlistId) => dispatch(actionTypes.fetchAlbumTracks(token, playlistId)),
     setPlayerTrack: (track) => dispatch(actionTypes.setPlayerTrack(track)),
     setAlbumImage: (imageUrl) => dispatch(actionTypes.setAlbumImage(imageUrl)),
-
   }
 }
 

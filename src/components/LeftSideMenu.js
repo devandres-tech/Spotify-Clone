@@ -8,6 +8,8 @@ import * as actionTypes from '../store/actions';
 const LeftSideMenu = (props) => {
 
   const getPlaylistTracks = (playlistId) => {
+    props.setCurrentTrackIndex();
+
     if (props.token) {
       props.fetchPlaylistTracks(props.token, playlistId);
       props.updateSongListView('UserPlaylistTracks')
@@ -42,6 +44,8 @@ const LeftSideMenu = (props) => {
   // Update main header title on browse click
   const onBrowseClick = () => {
     props.updateTitle('Browse');
+    props.setBrowseView('genres');
+    props.fetchBrowseCategories(props.token);
   }
 
   return (
@@ -76,7 +80,10 @@ const mapDispatchToProps = (dispatch) => {
   return {
     updateTitle: (title) => dispatch(actionTypes.updateTitle(title)),
     updateSongListView: (title) => dispatch(actionTypes.updateSongListView(title)),
-    fetchPlaylistTracks: (token, playlistId) => dispatch(actionTypes.fetchPlaylistTracks(token, playlistId))
+    fetchPlaylistTracks: (token, playlistId) => dispatch(actionTypes.fetchPlaylistTracks(token, playlistId)),
+    setBrowseView: (title) => dispatch(actionTypes.updateBrowseView(title)),
+    fetchBrowseCategories: (token) => dispatch(actionTypes.fetchBrowseCategories(token)),
+    setCurrentTrackIndex: (trackIndex) => dispatch(actionTypes.setCurrentTrackIndex(trackIndex))
   }
 }
 
