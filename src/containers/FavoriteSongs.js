@@ -5,6 +5,10 @@ import * as actionTypes from '../store/actions'
 
 class FavoriteSongs extends Component {
 
+  componentDidMount() {
+    this.props.updateTitle('Favorite Songs')
+  }
+
   componentDidUpdate(prevProps) {
     if (this.props.token !== prevProps.token) {
       this.props.fetchUserTracks(this.props.token);
@@ -48,7 +52,7 @@ class FavoriteSongs extends Component {
             className="song-list-title-row"
             onClick={() => {
               this.props.setCurrentTrackIndex(idx);
-              this.setCurrentPlayerTrack(track.track)
+              this.setCurrentPlayerTrack(track.track);
             }}>
             <p className="song-list-col-5">{track.track.name}</p>
             <p className="song-list-col-5">{track.track.artists[0].name}</p>
@@ -63,11 +67,11 @@ class FavoriteSongs extends Component {
     return (
       <>
         <div className="song-list-title-row">
-          <div className="song-list-col-5">title</div>
-          <div className="song-list-col-5">artist</div>
-          <div className="song-list-col-5">album</div>
-          <div className="song-list-col-5">date</div>
-          <div className="song-list-col-5">duration</div>
+          <div className="song-list-col-5 song-title">title</div>
+          <div className="song-list-col-5 song-artist">artist</div>
+          <div className="song-list-col-5 song-album">album</div>
+          <div className="song-list-col-5 song-date">date</div>
+          <div className="song-list-col-5 song-duration">duration</div>
         </div>
         <div className="song-list">
           {trackList}
@@ -91,6 +95,7 @@ const mapDispatchToProps = (dispatch) => {
     fetchUserTracks: (token) => dispatch(actionTypes.fetchUserTracks(token)),
     setPlayerTrack: (track) => dispatch(actionTypes.setPlayerTrack(track)),
     setAlbumImage: (imageUrl) => dispatch(actionTypes.setAlbumImage(imageUrl)),
+    updateTitle: (title) => dispatch(actionTypes.updateTitle(title)),
   }
 }
 

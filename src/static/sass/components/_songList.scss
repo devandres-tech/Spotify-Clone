@@ -7,6 +7,17 @@
   padding-top: .6rem;
   padding-bottom: .6rem;
 
+  &>.song-title,
+  >.song-artist,
+  >.song-album,
+  >.song-date,
+  >.song-duration {
+    text-transform: uppercase;
+    font-size: .8rem;
+    letter-spacing: .1rem;
+    color: $color-gray;
+  }
+
   &:hover {
     background-color: rgb(41, 41, 41);
     cursor: pointer;
