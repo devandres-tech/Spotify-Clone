@@ -5,6 +5,10 @@ import * as actionTypes from '../store/actions';
 let playListName;
 let playListDescription;
 let trackList;
+let playListImage;
+let playListOwner;
+let playListTotalSongs;
+let playListFollowers;
 
 let trackListArray;
 let trackListArtistArray;
@@ -61,6 +65,10 @@ class SongList extends Component {
           trackList = this.props.trackList.tracks.items
           playListName = this.props.trackList.name;
           playListDescription = this.props.trackList.description;
+          playListImage = this.props.trackList.images[0].url;
+          playListOwner = this.props.trackList.owner.display_name;
+          playListTotalSongs = this.props.trackList.tracks.total;
+          playListFollowers = this.props.trackList.followers.total;
           trackListArray = trackList.map((track, idx) => {
             if (track.track) {
               return (
@@ -72,9 +80,15 @@ class SongList extends Component {
           })
           // set the track list for the user playlist view
         } else if (this.props.songView === 'UserPlaylistTracks') {
-          trackList = this.props.trackList.tracks.items
+          // console.log("playlist is ", this.props.trackList)
+          trackList = this.props.trackList.tracks.items;
           playListName = this.props.trackList.name;
           playListDescription = this.props.trackList.description;
+          playListImage = this.props.trackList.images[0].url;
+          playListOwner = this.props.trackList.owner.display_name;
+          playListTotalSongs = this.props.trackList.tracks.total;
+          playListFollowers = this.props.trackList.followers.total;
+
           trackListArray = trackList.map((track, idx) => {
             if (track.track) {
               return (
@@ -99,6 +113,7 @@ class SongList extends Component {
 
     // Get the track list for an artist
     if (this.props.artistTrackList) {
+      console.log('artist tracklist is ', this.props.artistTrackList)
       trackListArtistArray = this.props.artistTrackList.map((track, idx) => {
         return (
           <li key={idx} onClick={() => { this.props.setCurrentTrackIndex(idx); this.setCurrentPlayerTrack(track) }} >
@@ -110,7 +125,11 @@ class SongList extends Component {
 
     const trackListContainer = (
       <div className="song-list">
+        <img src={playListImage} alt="" />
         <h1>{playListName}</h1>
+        <p>Created by: {playListOwner}</p>
+        <p>{playListTotalSongs} Songs</p>
+        <p>Followers {playListFollowers}</p>
         <p>{playListDescription}</p>
         <ul>
           {trackListArray}
@@ -129,9 +148,7 @@ class SongList extends Component {
     return (
       this.props.songView === 'ArtistTracks' ? trackListArtistContainer : trackListContainer
     )
-
   }
-
 }
 
 const mapStateToProps = (state) => {

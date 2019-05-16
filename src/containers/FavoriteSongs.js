@@ -40,6 +40,19 @@ class FavoriteSongs extends Component {
     this.props.audioControls(track.preview_url)
   }
 
+  /** Convert milliseconds to minute:second format */
+  msToHMS(duration) {
+    let seconds = parseInt((duration / 1000) % 60);
+    let minutes = parseInt((duration / (1000 * 60)) % 60);
+    // let hours = parseInt((duration / (1000 * 60 * 60)) % 24);
+
+    // hours = (hours < 10) ? "0" + hours : hours;
+    minutes = (minutes < 10) ? "0" + minutes : minutes;
+    seconds = (seconds < 10) ? "0" + seconds : seconds;
+
+    return minutes + ":" + seconds;
+  }
+
   render() {
 
     const { tracks } = this.props;
@@ -57,8 +70,8 @@ class FavoriteSongs extends Component {
             <p className="song-list-col-5">{track.track.name}</p>
             <p className="song-list-col-5">{track.track.artists[0].name}</p>
             <p className="song-list-col-5">{track.track.album.name}</p>
-            <p className="song-list-col-5">{track.added_at}</p>
-            <p className="song-list-col-5">{track.track.duration_ms}</p>
+            <p className="song-list-col-5">{track.added_at.slice(0, 10)}</p>
+            <p className="song-list-col-5">{this.msToHMS(track.track.duration_ms)}</p>
           </div>
         )
       })

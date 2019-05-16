@@ -19,7 +19,7 @@ const LeftSideMenu = (props) => {
 
   const renderUserPlaylist = () => {
     if (props.userPlaylists) {
-      console.log("user playlist is ", props.userPlaylists)
+      // console.log("user playlist is ", props.userPlaylists[0].id)
       const playlistNames = props.userPlaylists.map((playlist) => {
         return (
           <li onClick={() => getPlaylistTracks(playlist.id)} key={playlist.id}>
