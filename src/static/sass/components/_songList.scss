@@ -29,3 +29,38 @@
     padding-right: 2rem;
   }
 }
+
+.play-favorites {
+  display: inline-block;
+  margin: 20px;
+  font-family: 'Heebo',
+    Helvetica,
+    Arial,
+    sans-serif;
+  font-weight: 500;
+  width: 6.4rem;
+  border: none;
+  border-radius: 15px;
+  font-size: 11px;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  line-height: 24px;
+  padding-top: .3rem;
+  padding-bottom: .2rem;
+  color: $color-white;
+  background-color: $color-green;
+  transform: translate(-3.3rem, -.9rem);
+
+  &:focus {
+    outline: 0;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+i.far.fa-calendar {
+  // height: 1rem;
+  font-size: .9rem;
+}

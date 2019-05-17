@@ -44,9 +44,7 @@ class FavoriteSongs extends Component {
   msToHMS(duration) {
     let seconds = parseInt((duration / 1000) % 60);
     let minutes = parseInt((duration / (1000 * 60)) % 60);
-    // let hours = parseInt((duration / (1000 * 60 * 60)) % 24);
 
-    // hours = (hours < 10) ? "0" + hours : hours;
     minutes = (minutes < 10) ? "0" + minutes : minutes;
     seconds = (seconds < 10) ? "0" + seconds : seconds;
 
@@ -79,11 +77,12 @@ class FavoriteSongs extends Component {
 
     return (
       <>
+        <button className="play-favorites">Play</button>
         <div className="song-list-title-row">
           <div className="song-list-col-5 song-title">title</div>
           <div className="song-list-col-5 song-artist">artist</div>
           <div className="song-list-col-5 song-album">album</div>
-          <div className="song-list-col-5 song-date">date</div>
+          <div className="song-list-col-5 song-date"><i className="far fa-calendar"></i></div>
           <div className="song-list-col-5 song-duration">duration</div>
         </div>
         <div className="song-list">
