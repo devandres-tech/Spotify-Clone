@@ -36,6 +36,7 @@
   .profile-username {
     padding-top: .3rem;
     padding-left: .4rem;
+    font-size: .9rem;
   }
 
   .profile-img {
@@ -47,9 +48,9 @@
 .main-view-title {
   color: $color-white;
   background-color: $color-dark;
-  font-size: 3.2rem;
+  font-size: 3rem;
   padding-left: 1.8rem;
-  // padding-bottom: 2rem;
-  font-family: 'Mukta', sans-serif;
+  font-family: 'Heebo',
+    sans-serif;
   font-weight: 700;
 }

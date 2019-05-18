@@ -65,11 +65,11 @@ class FavoriteSongs extends Component {
               this.props.setCurrentTrackIndex(idx);
               this.setCurrentPlayerTrack(track.track);
             }}>
-            <p className="song-list-col-5">{track.track.name}</p>
+            <p className="song-list-col-5"><i className="fas fa-heart"></i>{track.track.name}</p>
             <p className="song-list-col-5">{track.track.artists[0].name}</p>
             <p className="song-list-col-5">{track.track.album.name}</p>
-            <p className="song-list-col-5">{track.added_at.slice(0, 10)}</p>
-            <p className="song-list-col-5">{this.msToHMS(track.track.duration_ms)}</p>
+            <p className="song-list-col-5 date-added">{track.added_at.slice(0, 10)}</p>
+            <p className="song-list-col-5 duration">{this.msToHMS(track.track.duration_ms)}</p>
           </div>
         )
       })
@@ -77,16 +77,18 @@ class FavoriteSongs extends Component {
 
     return (
       <>
-        <button className="play-favorites">Play</button>
-        <div className="song-list-title-row">
-          <div className="song-list-col-5 song-title">title</div>
-          <div className="song-list-col-5 song-artist">artist</div>
-          <div className="song-list-col-5 song-album">album</div>
-          <div className="song-list-col-5 song-date"><i className="far fa-calendar"></i></div>
-          <div className="song-list-col-5 song-duration">duration</div>
-        </div>
-        <div className="song-list">
-          {trackList}
+        <button className="play-favorites-btn">Play</button>
+        <div className="song-list-container">
+          <div className="song-list-title-row">
+            <div className="song-list-col-5 song-title">title</div>
+            <div className="song-list-col-5 song-artist">artist</div>
+            <div className="song-list-col-5 song-album">album</div>
+            <div className="song-list-col-5 song-date"><i className="far fa-calendar"></i></div>
+            <div className="song-list-col-5 song-duration"><i className="far fa-clock"></i></div>
+          </div>
+          <div className="song-list">
+            {trackList}
+          </div>
         </div>
       </>
     )

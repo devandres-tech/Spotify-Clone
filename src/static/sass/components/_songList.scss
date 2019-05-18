@@ -7,13 +7,21 @@
   padding-top: .6rem;
   padding-bottom: .6rem;
 
+  &>.song-list-col-5 {
+    display: inline-block;
+    width: 100%;
+    padding-right: 1rem;
+    font-size: .9rem;
+
+  }
+
   &>.song-title,
   >.song-artist,
   >.song-album,
   >.song-date,
   >.song-duration {
     text-transform: uppercase;
-    font-size: .8rem;
+    font-size: .75rem;
     letter-spacing: .1rem;
     color: $color-gray;
   }
@@ -23,14 +31,17 @@
     cursor: pointer;
   }
 
-  &>.song-list-col-5 {
-    display: inline-block;
-    width: 100%;
-    padding-right: 2rem;
+  & .date-added,
+  .duration {
+    color: $color-gray;
   }
 }
 
-.play-favorites {
+.song-list-container {
+  padding-left: 2.8rem;
+}
+
+.play-favorites-btn {
   display: inline-block;
   margin: 20px;
   font-family: 'Heebo',
@@ -49,7 +60,7 @@
   padding-bottom: .2rem;
   color: $color-white;
   background-color: $color-green;
-  transform: translate(-3.3rem, -.9rem);
+  transform: translate(-.5rem, -.9rem);
 
   &:focus {
     outline: 0;
@@ -61,6 +72,13 @@
 }
 
 i.far.fa-calendar {
-  // height: 1rem;
-  font-size: .9rem;
+  font-size: 1rem;
+}
+
+i.far.fa-clock {
+  font-size: 1rem;
+}
+
+i.fas.fa-heart {
+  padding-right: 1.2rem;
 }
