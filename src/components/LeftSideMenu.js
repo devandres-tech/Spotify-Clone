@@ -1,13 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
-// import BrowseIcon from '../static/images/box.svg';
 
 import * as actionTypes from '../store/actions';
 
 
 const LeftSideMenu = (props) => {
-
-  const getPlaylistTracks = (playlistId) => {
+  // Fetch tracks when user clicks on a playlist link
+  const getPlaylistTracks = (playlistId, e) => {
     props.setCurrentTrackIndex();
 
     if (props.token) {
@@ -17,18 +16,25 @@ const LeftSideMenu = (props) => {
     }
   }
 
+  // Renders the list of user's playlist
   const renderUserPlaylist = () => {
     if (props.userPlaylists) {
-      // console.log("user playlist is ", props.userPlaylists[0].id)
       const playlistNames = props.userPlaylists.map((playlist) => {
         return (
-          <li onClick={() => getPlaylistTracks(playlist.id)} key={playlist.id}>
+          <li onClick={(e) => getPlaylistTracks(playlist.id, e)} key={playlist.id}>
             {playlist.name}
           </li>
         )
       })
       return playlistNames;
     }
+  }
+
+  // Update main header title on browse click
+  const onBrowseClick = () => {
+    props.updateTitle('Browse');
+    props.setBrowseView('genres');
+    props.fetchBrowseCategories(props.token);
   }
 
   const renderUserLibrary = () => {
@@ -42,15 +48,22 @@ const LeftSideMenu = (props) => {
     )
   }
 
-  // Update main header title on browse click
-  const onBrowseClick = () => {
-    props.updateTitle('Browse');
-    props.setBrowseView('genres');
-    props.fetchBrowseCategories(props.token);
+  // Set an active class to the side menu items when clicked
+  const setActiveClass = (e) => {
+    const lis = document.querySelectorAll('li');
+    // only add active class if it is a li
+    if (e.target.tagName === 'LI') {
+      // remove active class from all li's
+      lis.forEach((item) => {
+        item.classList.remove('active')
+      })
+      // set active class to currently clicked item
+      e.target.classList.add('active');
+    }
   }
 
   return (
-    <ul className="container__left-menu">
+    <ul onClick={setActiveClass} className="container__left-menu">
       <div className="browse-section">
         <li onClick={onBrowseClick}>
           Browse
@@ -68,6 +81,7 @@ const LeftSideMenu = (props) => {
     </ul>
   )
 }
+
 
 const mapStateToProps = (state) => {
   return {
