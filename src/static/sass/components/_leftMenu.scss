@@ -60,7 +60,9 @@
 }
 
 .active {
-  // color: red;
-  border-left: solid $color-green;
-
+  position: absolute;
+  height: 18px;
+  width: 5px;
+  left: 0;
+  background-color: $color-green;
 }

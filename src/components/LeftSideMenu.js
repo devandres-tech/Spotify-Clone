@@ -50,15 +50,17 @@ const LeftSideMenu = (props) => {
 
   // Set an active class to the side menu items when clicked
   const setActiveClass = (e) => {
-    const lis = document.querySelectorAll('li');
-    // only add active class if it is a li
+    const divEl = document.createElement('div');
+    divEl.classList.add('active');
+    // Only add div if the item clicked was an li element
     if (e.target.tagName === 'LI') {
-      // remove active class from all li's
-      lis.forEach((item) => {
-        item.classList.remove('active')
-      })
-      // set active class to currently clicked item
-      e.target.classList.add('active');
+      // remove all previous divs
+      let allDivEl = document.getElementsByClassName('active');
+      for (let i = 0; i < allDivEl.length; i++) {
+        allDivEl[i].remove();
+      }
+      // set div to current li target
+      e.target.prepend(divEl)
     }
   }
 
