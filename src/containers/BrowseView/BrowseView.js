@@ -33,11 +33,35 @@ class BrowseView extends Component {
     this.props.setCurrentTrackIndex();
   }
 
+  setActiveClassStyle = (e) => {
+    const divElement = document.createElement('div');
+    divElement.classList.add('active-browse');
+    if (e.target.tagName === 'P') {
+      let allActiveDivs = document.getElementsByClassName('active-browse');
+      for (let i = 0; i < allActiveDivs.length; i++) {
+        allActiveDivs[i].remove();
+      }
+      console.log(e.target.tagName)
+      e.target.appendChild(divElement)
+    }
+    // divEl.classList.add('active');
+    // // Only add div if the item clicked was an li element
+    // if (e.target.tagName === 'P') {
+    //   // remove all previous divs
+    //   let allDivEl = document.getElementsByClassName('active');
+    //   for (let i = 0; i < allDivEl.length; i++) {
+    //     allDivEl[i].remove();
+    //   }
+    //   // set div to current li target
+    //   e.target.prepend(divEl)
+    // }
+  }
+
   render() {
     const { browseTitle } = this.props;
     return (
       <>
-        <div className="browse-view-menu">
+        <div onClick={(e) => this.setActiveClassStyle(e)} className="browse-view-menu">
           <p onClick={() => this.onSetBrowseView()}>Genres & Moods</p>
           <p onClick={() => this.onSetNewReleasesView()}>New Releases</p>
           <p onClick={() => this.onSetFeaturedView()}>Featured</p>

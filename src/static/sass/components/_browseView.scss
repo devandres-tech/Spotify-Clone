@@ -68,3 +68,12 @@
     }
   }
 }
+
+.active-browse {
+  background-color: $color-green;
+  height: .18rem;
+  margin-top: .4rem;
+  margin: .4rem auto;
+  width: 2rem;
+  z-index: 23333;
+}
