@@ -113,7 +113,6 @@ class SongList extends Component {
 
     // Get the track list for an artist
     if (this.props.artistTrackList) {
-      console.log('artist tracklist is ', this.props.artistTrackList)
       trackListArtistArray = this.props.artistTrackList.map((track, idx) => {
         return (
           <li key={idx} onClick={() => { this.props.setCurrentTrackIndex(idx); this.setCurrentPlayerTrack(track) }} >
@@ -124,13 +123,17 @@ class SongList extends Component {
     }
 
     const trackListContainer = (
-      <div className="song-list">
-        <img src={playListImage} alt="" />
-        <h1>{playListName}</h1>
-        <p>Created by: {playListOwner}</p>
-        <p>{playListTotalSongs} Songs</p>
-        <p>Followers {playListFollowers}</p>
-        <p>{playListDescription}</p>
+      <div className="album-song-list">
+        <div className="album-song-list__container">
+          <img src={playListImage} alt="" />
+          <div className="album-song-list__container--info">
+            <p>PLAYLIST</p>
+            <h1 className="album-song-list__title">{playListName}</h1>
+            <p>{playListDescription}</p>
+            <p>Created by: {playListOwner} * {playListTotalSongs} songs</p>
+            <p>{playListFollowers} FOLLOWERS</p>
+          </div>
+        </div>
         <ul>
           {trackListArray}
         </ul>

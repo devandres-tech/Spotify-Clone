@@ -41,20 +41,8 @@ class BrowseView extends Component {
       for (let i = 0; i < allActiveDivs.length; i++) {
         allActiveDivs[i].remove();
       }
-      console.log(e.target.tagName)
       e.target.appendChild(divElement)
     }
-    // divEl.classList.add('active');
-    // // Only add div if the item clicked was an li element
-    // if (e.target.tagName === 'P') {
-    //   // remove all previous divs
-    //   let allDivEl = document.getElementsByClassName('active');
-    //   for (let i = 0; i < allDivEl.length; i++) {
-    //     allDivEl[i].remove();
-    //   }
-    //   // set div to current li target
-    //   e.target.prepend(divEl)
-    // }
   }
 
   render() {

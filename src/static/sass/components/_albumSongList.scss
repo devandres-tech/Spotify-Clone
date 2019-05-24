@@ -1,0 +1,19 @@
+.album-song-list__container {
+  display: flex;
+  padding-bottom: 4rem;
+  font-family: 'Mukta',
+    sans-serif;
+  font-weight: 300;
+
+  &>img {
+    height: 14rem;
+    padding-right: 1.5rem;
+  }
+
+  & .album-song-list__title {
+    font-family: 'Heebo',
+      sans-serif;
+    font-weight: 700;
+    font-size: 2.5rem;
+  }
+}
