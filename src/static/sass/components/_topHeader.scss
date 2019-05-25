@@ -1,5 +1,8 @@
+.container__top-header {
+  background: linear-gradient(rgb(129, 129, 129), rgb(17, 16, 16));
+}
+
 .container__main-view--topHeader {
-  background-color: #181818;
   color: #fff;
   padding-top: .7rem;
   padding-bottom: 1rem;
@@ -46,6 +49,7 @@
 }
 
 .main-view-title {
+  background: linear-gradient(rgb(73, 73, 73), rgb(20, 20, 20));
   color: $color-white;
   background-color: $color-dark;
   font-size: 3rem;

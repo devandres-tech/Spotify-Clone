@@ -127,11 +127,14 @@ class SongList extends Component {
         <div className="album-song-list__container">
           <img src={playListImage} alt="" />
           <div className="album-song-list__container--info">
-            <p>PLAYLIST</p>
+            <p className="album-song-list__playlist">PLAYLIST</p>
             <h1 className="album-song-list__title">{playListName}</h1>
-            <p>{playListDescription}</p>
-            <p>Created by: {playListOwner} * {playListTotalSongs} songs</p>
-            <p>{playListFollowers} FOLLOWERS</p>
+            <div className="album-song-list__description">
+              <p>{playListDescription}</p>
+              <p>Created by: {playListOwner} * {playListTotalSongs} songs</p>
+              <p>{playListFollowers} FOLLOWERS</p>
+              <button className="play-favorites-btn">Play</button>
+            </div>
           </div>
         </div>
         <ul>

@@ -4,16 +4,41 @@
   font-family: 'Mukta',
     sans-serif;
   font-weight: 300;
+  background: linear-gradient(rgb(24, 22, 22), rgb(27, 27, 27));
 
   &>img {
     height: 14rem;
     padding-right: 1.5rem;
   }
 
-  & .album-song-list__title {
-    font-family: 'Heebo',
-      sans-serif;
-    font-weight: 700;
-    font-size: 2.5rem;
+  & .album-song-list__container--info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    & .album-song-list__title {
+      letter-spacing: .06rem;
+      padding-top: .5rem;
+      font-family: 'Heebo',
+        sans-serif;
+      font-weight: 700;
+      font-size: 2.5rem;
+    }
+
+    & .album-song-list__playlist {
+      font-size: .8rem;
+      letter-spacing: .09rem;
+    }
+
+    & .album-song-list__description {
+      color: $color-gray;
+
+      &>p {
+        padding-top: 1rem;
+      }
+    }
   }
+
+
+
 }

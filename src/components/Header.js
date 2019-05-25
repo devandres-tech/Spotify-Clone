@@ -9,7 +9,7 @@ const Header = (props) => {
     imageUrl = props.user.images[0].url
   }
   return (
-    <>
+    <div className="container__top-header">
       <div className="container__main-view--topHeader">
         <input placeholder="Search" />
         <div className="topHeader-left-side">
@@ -18,7 +18,7 @@ const Header = (props) => {
         </div>
       </div>
       <h1 className="main-view-title">{props.title}</h1>
-    </>
+    </div>
   )
 }
 
