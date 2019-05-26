@@ -9,7 +9,7 @@ import Artists from '../containers/Artists';
 import Albums from '../containers/Albums';
 import SongList from '../components/SongList';
 
-
+/** TODO: update the main title view and artist song list styles */
 class MainView extends Component {
 
   // set genres view title when as soon as component mounts

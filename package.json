@@ -2,6 +2,10 @@
   "name": "react-spotify",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "11.9.0",
+    "npm": "6.9.0"
+  },
   "dependencies": {
     "axios": "^0.18.0",
     "moment": "^2.24.0",

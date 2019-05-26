@@ -67,11 +67,10 @@ class SongList extends Component {
   }
 
   render() {
-    /** Get the track list for a playlist or album depending on the songView */
+    /** Get the track list for a playlist or album depending on the songView value */
     if (this.props.trackList) {
       // return tracks for a playlist
       if (this.props.trackList.tracks) {
-        // set the track list for the browse view
         if (this.props.songView === 'BrowseViewSongList') {
           trackList = this.props.trackList.tracks.items
           playListName = this.props.trackList.name;
@@ -113,9 +112,20 @@ class SongList extends Component {
           trackListArray = trackList.map((track, idx) => {
             if (track.track) {
               return (
-                <li key={track.track.id + idx} onClick={() => { this.props.setCurrentTrackIndex(idx); this.setCurrentPlayerTrack(track.track) }}>
-                  <p>{track.track.name}</p>
-                </li>
+                <div
+                  className="song-list-title-row"
+                  key={track.track.id + idx}
+                  onClick={() => {
+                    this.props.setCurrentTrackIndex(idx);
+                    this.setCurrentPlayerTrack(track.track)
+                  }}
+                >
+                  <p className="song-list-col-5">{track.track.name}</p>
+                  <p className="song-list-col-5">{track.track.artists[0].name}</p>
+                  <p className="song-list-col-5">{track.track.album.name}</p>
+                  <p className="song-list-col-5 date-added">{track.added_at.slice(0, 10)}</p>
+                  <p className="song-list-col-5 duration">{this.msToHMS(track.track.duration_ms)}</p>
+                </div>
               )
             }
           })
