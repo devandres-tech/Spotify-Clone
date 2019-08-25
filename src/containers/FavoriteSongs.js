@@ -20,7 +20,7 @@ class FavoriteSongs extends Component {
       let nextTrack = nextProps.tracks.find((track, i) => {
         if (i === nextProps.trackIndex) return track;
       })
-      if (nextTrack) {
+      if (nextTrack.track.album.images.length > 0) {
         this.props.audioControls(nextTrack.track.preview_url);
         this.props.setPlayerTrack(nextTrack.track)
         this.props.setAlbumImage(nextTrack.track.album.images[2].url)
@@ -31,7 +31,8 @@ class FavoriteSongs extends Component {
 
   setCurrentPlayerTrack = (track) => {
     // Set album image on footer
-    if (track.album) {
+    if (track.album.images.length > 0) {
+      console.log('props in Fave Songs ', track.album)
       this.props.setAlbumImage(track.album.images[2].url)
     }
     // Set track on footer
