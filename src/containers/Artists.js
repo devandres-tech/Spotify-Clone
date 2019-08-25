@@ -19,7 +19,7 @@ class Artists extends Component {
     artistList = nextProps.artists.artists.map((artist) => {
       return (
         <div className="artist-container" onClick={() => this.onArtistClick(artist.id)} key={artist.id}>
-          <img className="artist-img" src={artist.images[1].url} alt="" />
+          <img className="artist-img" src={artist.images.length > 0 ? artist.images[1].url : ''} alt="" />
           <p>{artist.name}</p>
         </div>
       )

@@ -40,7 +40,7 @@ class Albums extends Component {
       trackList = tracks.map((track, idx) => {
         return (
           <div key={track.track.id} onClick={() => { this.props.setCurrentTrackIndex(idx); this.setCurrentPlayerTrack(track.track) }}>
-            <img src={track.track.album.images[1].url} alt="" />
+            <img src={track.track.album.images.length > 0 ? track.track.album.images[1].url : ''} alt="" />
             <p>{track.track.album.name}</p>
             <p>{track.track.album.artists[0].name}</p>
           </div>
