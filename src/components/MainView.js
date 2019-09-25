@@ -9,16 +9,12 @@ import Artists from '../containers/Artists';
 import Albums from '../containers/Albums';
 import SongList from '../components/SongList';
 
-/** TODO: update the main title view and artist song list styles */
 class MainView extends Component {
-
-  // set genres view title when as soon as component mounts
+  // set genres view title when component mounts
   componentDidMount() {
     this.props.setBrowseView('genres')
   }
 
-  // Update the main view based on the 
-  // current main view title
   renderMainViewSwitch() {
     // whenever the token is available fetch 
     // browse categories to display as default
@@ -45,7 +41,6 @@ class MainView extends Component {
     }
   }
   render() {
-    // console.log('props is', this.props.audioControls);
     return (
       <div className="container__main-view--content">
         {this.renderMainViewSwitch()}

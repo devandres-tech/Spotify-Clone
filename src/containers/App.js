@@ -16,14 +16,14 @@ class App extends Component {
     const clientId = '40fee03a615b470c8c8f73a02a634dcc';
     const URI = 'http://localhost:3000/callback/';
     // scopes
-    const scopes = 'user-read-private%20user-read-email%20playlist-read-private%20user-library-read%20user-follow-read%20user-top-read%20user-read-currently-playing%20user-read-recently-played'
+    const scopes = `user-read-private%20user-read-email%20playlist-read-private%20user-
+    library-read%20user-follow-read%20user-top-read%20user-read-currently-playing%20user-read-recently-played`
     let accessToken;
     if (window.location.hash.length === 0) {
       window.location.href = `https://accounts.spotify.com/authorize?client_id=${clientId}&scope=${scopes}&response_type=token&redirect_uri=${URI}`
     } else {
       accessToken = window.location.hash.split('=')[1].split('&')[0];
       this.props.setToken(accessToken);
-      // console.log('token is ', accessToken);
       this.props.fetchUserPlaylists(accessToken);
       this.props.fetchUserProfile(accessToken);
     }
@@ -58,6 +58,7 @@ class App extends Component {
       this.audioTrack.play();
     }
   }
+
   /** 
    * Only play tracks when a new mp3 url is passed in 
    * @param {String} songUrl - the preview track url
@@ -68,13 +69,12 @@ class App extends Component {
       this.audioTrack = new Audio(songUrl);
       this.audioTrack.ontimeupdate = this.getCurrentTime;
       this.playTrack();
-    } else {
-      // pause current track and create new audio element and play the new one
-      this.audioTrack.pause();
-      this.audioTrack = new Audio(songUrl);
-      this.audioTrack.ontimeupdate = this.getCurrentTime;
-      this.playTrack();
     }
+    // pause current track and create new audio element and play the new one
+    this.audioTrack.pause();
+    this.audioTrack = new Audio(songUrl);
+    this.audioTrack.ontimeupdate = this.getCurrentTime;
+    this.playTrack();
   }
 
   render() {

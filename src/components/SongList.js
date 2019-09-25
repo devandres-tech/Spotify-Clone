@@ -13,7 +13,6 @@ let playListFollowers;
 let trackListArray;
 let trackListArtistArray;
 class SongList extends Component {
-
   /** Updates previous and next track when buttons are clicked*/
   shouldComponentUpdate(nextProps, nextState, nextContext) {
     // Set up the track index in redux store
@@ -26,7 +25,6 @@ class SongList extends Component {
         this.props.setPlayerTrack(nextTrack.track)
         this.props.setAlbumImage(nextTrack.track.album.images[2].url)
       }
-
     }
     // returns next and previous track for artist playlist
     if (this.props.artistTrackList && nextProps.trackIndex >= 0 && this.props.songView === 'ArtistTracks') {

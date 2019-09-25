@@ -10,7 +10,7 @@ const NewReleases = (props) => {
     // fetch tracks for a selected playlist and update browse view
     props.fetchAlbumTracks(props.token, playlistId);
     // Set album image on footer
-    props.setAlbumImage(albumImg)
+    props.setAlbumImage(albumImg);
     props.setBrowseView('trackList');
   }
 

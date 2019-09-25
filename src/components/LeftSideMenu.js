@@ -8,7 +8,6 @@ const LeftSideMenu = (props) => {
   // Fetch tracks when user clicks on a playlist link
   const getPlaylistTracks = (playlistId, e) => {
     props.setCurrentTrackIndex();
-
     if (props.token) {
       props.fetchPlaylistTracks(props.token, playlistId);
       props.updateSongListView('UserPlaylistTracks')
@@ -16,7 +15,7 @@ const LeftSideMenu = (props) => {
     }
   }
 
-  // Renders the list of user's playlist
+  // Render user playlist items 
   const renderUserPlaylist = () => {
     if (props.userPlaylists) {
       const playlistNames = props.userPlaylists.map((playlist) => {

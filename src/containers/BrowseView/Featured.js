@@ -10,7 +10,7 @@ const Featured = (props) => {
     // fetch tracks for a selected playlist and update browse view
     props.fetchPlaylistTracks(props.token, playlistId);
     // Set the song view to display the song list
-    props.updateSongListView('BrowseViewSongList')
+    props.updateSongListView('BrowseViewSongList');
     props.setBrowseView('trackList');
   }
 

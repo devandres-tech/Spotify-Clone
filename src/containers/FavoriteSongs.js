@@ -53,7 +53,6 @@ class FavoriteSongs extends Component {
   }
 
   render() {
-
     const { tracks } = this.props;
     let trackList;
 
