@@ -13,14 +13,10 @@ class App extends Component {
   static audioTrack;
   /* When component mounts request authorization */
   componentDidMount() {
-    const clientId = '40fee03a615b470c8c8f73a02a634dcc';
-    const URI = 'http://localhost:3000/callback/';
-    // scopes
-    const scopes = `user-read-private%20user-read-email%20playlist-read-private%20user-
-    library-read%20user-follow-read%20user-top-read%20user-read-currently-playing%20user-read-recently-played`
+    const scopes = 'playlist-read-private%20playlist-read-collaborative%20playlist-modify-public%20user-read-recently-played%20playlist-modify-private%20ugc-image-upload%20user-follow-modify%20user-follow-read%20user-library-read%20user-library-modify%20user-read-private%20user-read-email%20user-top-read%20user-read-playback-state'
     let accessToken;
     if (window.location.hash.length === 0) {
-      window.location.href = `https://accounts.spotify.com/authorize?client_id=${clientId}&scope=${scopes}&response_type=token&redirect_uri=${URI}`
+      window.location.href = `https://accounts.spotify.com/authorize?client_id=${process.env.REACT_APP_CLIENT_ID}&scope=${scopes}&response_type=token&redirect_uri=${process.env.REACT_APP_CALLBACK_URI}`
     } else {
       accessToken = window.location.hash.split('=')[1].split('&')[0];
       this.props.setToken(accessToken);
